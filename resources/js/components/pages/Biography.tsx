@@ -10,15 +10,15 @@ export const Biography = () => {
                         <h1>Jose Carranco</h1>
                         <a href="mailto:carranco.jose.r@gmail.com">carranco.jose.r@gmail.com</a>
                         <br/>
-                        <a className="socialIcons" href="https://www.linkedin.com/in/carranj" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                          <a className="socias" href="https://www.facebook.com/carranj" target="_blank" rel="noopener noreferrer">Facebook</a>
-                          <a className="socialIcons" href="https://github.com/carranj" target="_blank" rel="noopener noreferrer">Github</a>
+                            <a className="socialIcons" href="https://www.linkedin.com/in/carranj" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a>
+                            <a className="socialIcons" href="https://www.facebook.com/carranj" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-square"></i></a>
+                            <a className="socialIcons" href="https://github.com/carranj" target="_blank" rel="noopener noreferrer"><i className="fab fa-github-square"></i></a>
                           
                           <p>I'm a web developer and specialize in web development. I primarily build Angular applications and custom WordPress websites. I serve as a Full Stack Developer in Houston. Click here to see samples of my featured work or continue reading below to learn more of my interactive journey.</p>
                       </div>
                   </div>
                   <div className="col-md-6 profilephoto">
-                      <img className="img-fluid profile-photo" src="/assets/img/profile-photo.jpg" alt=""/>
+                      <img className="img-fluid profile-photo" src="/images/profile-photo.jpg" alt=""/>
                   </div>
               </div>
               <div className="row sectionTwo m-0">

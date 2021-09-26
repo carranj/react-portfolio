@@ -11,4 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.ts('resources/js/index.tsx', 'public/js/app.js').react();
+mix
+    .ts('resources/js/index.tsx', 'public/js/app.js')
+    .react()
+    .sass('resources/sass/styles.scss', 'public/css')

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProjectsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('app');
+Route::prefix('api')->group(function () {
+    Route::get('/get-all-projects', [ProjectsController::class, 'getAllProjects']);
 });
+
+Route::get('/{any}', function () {
+    return view('app');
+})->where('any', '.*');

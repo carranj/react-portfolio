@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
+
+html{
+    margin:0;
+}
+body {
+    font-family: 'Muli', sans-serif;
+    background: #322f2a;
+    color:#f2f2f2;
+}
+body,html, #app{
+    height: 100%;
+}
+header{
+    position: absolute;
+    z-index: 100;
+    top:0;
+    color:#f2f2f2;
+    padding:15px 0px;
+    width:100%;
+    @media screen and (min-width: 768px) {
+        padding:30px;
+    }
+    ul{
+        margin:0;
+        padding:0;
+        li{
+            margin:0;
+            list-style-type:none;
+            display:inline-block;
+            a{
+                color:#f2f2f2;
+                text-shadow:2px 1px 5px rgba(0,0,0,0.95);
+                margin:0 10px;
+                transition: .15s linear all;
+                @media screen and (min-width: 768px) {
+                    margin:0 25px;
+                }
+                &:hover{
+                    text-decoration: none;
+                    color:darken(#f2f2f2, 30%);
+                    text-shadow:none;
+                }
+            }
+        }
+    }
+}
+.container-fluid{
+    &.homepage{
+        height: 100%;
+        background: url("/images/homepage-bg.jpg") no-repeat;
+        box-shadow: inset 0 0 0 1000px rgba(37, 37, 37,.90);
+        /* Full height */
+        height: 100%;
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-size: cover;
+        color:#f2f2f2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .intro{
+            max-width:600px;
+            margin:0 auto;
+            text-align: center;
+            h1{
+                font-size:48px;
+                @media screen and (min-width: 768px) {
+                    font-size:80px;
+                }
+            }
+            h2{
+                font-style: italic;
+                font-size:24px;
+                @media screen and (min-width: 768px) {
+                    font-size:36px;
+                }
+            }
+            .tabbedNav{
+                margin-top:30px;
+            }
+        }
+    }
+    &.portfolio{
+        height: 100%;
+        .portfolio-landing-intro{
+            background: url("/images/portfolio-bg.jpg") no-repeat;
+            box-shadow: inset 0 0 0 1000px rgba(37, 37, 37,.90);
+            /* Full height */
+            height: 100%;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-size: cover;
+            color:#f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+            h1{
+                font-size:60px;
+            }
+            p{
+                font-size:26px;
+            }
+        }
+    }
+}
+.biography{
+    .intro{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .name{
+            max-width:400px;
+            margin:0 auto;
+            text-align: center;
+            -webkit-box-flex: 0;
+            -webkit-flex: none;
+            -ms-flex: none;
+            flex: none;
+            h1{
+                font-size:60px;
+                text-shadow:2px 1px 5px rgba(0,0,0,0.95);
+            }
+            .socialIcons{
+                margin-right: 15px;
+            }
+        }
+        .profilephoto{
+            background:#e5dbda;
+        }
+    }
+    .sectionTwo{
+        background:#e5dbda;
+        text-align: center;
+        color:#322f2a;
+        padding:30px;
+        h2{
+            font-size: 36px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        ul{
+            list-style-type: none;
+            font-weight: 300;
+            padding:0;
+            font-size: 24px;
+        }
+    }
+}
+.portfolio{
+    .portfoliolists{
+        .portfolio-item{
+            background: #e5dbda;
+            padding:8px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            color:#322f2a;
+            .img-placement{
+                max-height: 210px;
+                margin: 0 auto;
+                text-align: center;
+                overflow: hidden;
+                -webkit-box-shadow: 3px 3px 8px 0px rgba(0,0,0,0.25);
+                -moz-box-shadow: 3px 3px 8px 0px rgba(0,0,0,0.25);
+                box-shadow: 3px 3px 8px 0px rgba(0,0,0,0.25);
+            }
+            .portfolio-content{
+                h2{
+                    font-size:22px;
+                    font-weight: 700;
+                    margin:5px 0;
+                }
+                p{
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+.single-portfolio, .contact{
+    padding-top: 84px;
+    margin-bottom: -84px;
+    p{
+        font-size: 16px;
+    }
+    h1{
+        font-size:2rem;
+    }
+    h2{
+        font-size:1.8rem;
+    }
+    .skillsSection{
+        display: block;
+        .skills{
+            .skill{
+                margin-right:15px;
+                padding:7px 15px;
+                margin-bottom: 10px;
+                -moz-border-radius: 15px; 
+                border-radius: 15px; /* standards-compliant: (IE) */ 
+                color:#f2f2f2;
+                &:before {
+                  font-family: "Font Awesome 5 Brands";
+                  font-weight: normal;
+                  font-style: normal;
+                  display: inline-block;
+                  text-decoration: inherit;
+                }
+                
+                &.html{
+                    background: #5f5f5f;
+                    &:before {content: "\f13b";}
+                }
+                
+                &.css {
+                    background: #005A9C;
+                    &:before {content: "\f38b";}
+                }
+                
+                &.googlewebdesigner {
+                    background: #DD4B39;
+                    &:before {content: "\f1a0";}
+                }
+                
+                &.wordpress {
+                    background: #0073aa;
+                    &:before {content: "\f19a";}
+                }
+                
+                &.bootstrap {
+                    background:#6f5499;
+                    &:before {
+                        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+                        content: "B";
+                        border:1px solid #f2f2f2;
+                        padding: 0px 4px;
+                        border-radius: 3px;
+                      }
+                }
+                
+                &.vanillajs {
+                    background:#d1bea8;
+                    &:before {content: "\f3b8";}
+                }
+                
+                &.jquery {
+                    background: #b24926;
+                    &:before {
+                        content: "\f3b8";
+                    }
+                }
+                
+                &.php {
+                    background: #8892BF;
+                    &:before {content: "\f457";}
+                }
+                
+                &.e-commerce {
+                    background: #10aea2;
+                    &:before {font-family: "Font Awesome 5 Pro"; content: "\f07a";}
+                }
+                
+                &.design {
+                    background: #964B00;
+                    &:before {content: "\f1fc";}
+                }
+                
+                &.gsap {background: #61AC27;
+                    &:before {content: "\f011";}
+                }
+                
+                &.ajax {
+                    background: #97ba31;
+                    &:before {
+                        content: "\f0ec";
+                        -webkit-transform: rotate(90deg);
+                           -moz-transform: rotate(90deg);
+                            -ms-transform: rotate(90deg);
+                             -o-transform: rotate(90deg);
+                                transform: rotate(90deg);
+                      }
+                }
+            }
+        }
+    }
+    .previewBtn{
+        margin-top:15px;
+    }
+}
+.contact{
+    background: url("/images/backgrounds/portfolio-bg.jpg") no-repeat;
+            box-shadow: inset 0 0 0 1000px rgba(37, 37, 37,.90);
+            /* Full height */
+            height: 100%;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-size: cover;
+            color:#f2f2f2;
+            @media screen and (min-width: 768px) {
+                overflow:hidden;
+            }
+
+}
