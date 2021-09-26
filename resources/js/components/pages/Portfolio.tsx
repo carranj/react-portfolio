@@ -1,0 +1,10 @@
+import React from "react";
+
+export const Portfolio = () => {
+
+    return (
+        <div>
+            <h1>Portfolio works!</h1>
+        </div>
+    )
+};

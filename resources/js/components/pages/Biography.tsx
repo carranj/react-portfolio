@@ -1,0 +1,63 @@
+import React, {useState} from "react";
+
+export const Biography = () => {
+
+    return (  
+        <div className="container-fluid biography p-0">
+            <div className="row intro m-0">
+                <div className="col-md-6">
+                    <div className="name">
+                        <h1>Jose Carranco</h1>
+                        <a href="mailto:carranco.jose.r@gmail.com">carranco.jose.r@gmail.com</a>
+                        <br/>
+                        <a className="socialIcons" href="https://www.linkedin.com/in/carranj" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                          <a className="socias" href="https://www.facebook.com/carranj" target="_blank" rel="noopener noreferrer">Facebook</a>
+                          <a className="socialIcons" href="https://github.com/carranj" target="_blank" rel="noopener noreferrer">Github</a>
+                          
+                          <p>I'm a web developer and specialize in web development. I primarily build Angular applications and custom WordPress websites. I serve as a Full Stack Developer in Houston. Click here to see samples of my featured work or continue reading below to learn more of my interactive journey.</p>
+                      </div>
+                  </div>
+                  <div className="col-md-6 profilephoto">
+                      <img className="img-fluid profile-photo" src="/assets/img/profile-photo.jpg" alt=""/>
+                  </div>
+              </div>
+              <div className="row sectionTwo m-0">
+                
+                      <div className="col-md-4">
+                          <h2>Strategy</h2>
+                          <ul>
+                              <li>Inbound Marketing</li>
+                              <li>Whitepaper</li>
+                              <li>Social Media Planning</li>
+                              <li>Project Management</li>
+                              <li>Google Analytics</li>
+                              <li>Branding</li>
+                          </ul>
+                      </div>
+                      <div className="col-md-4">
+                          <h2>Design</h2>
+                          <ul>
+                              <li>Photoshop</li>
+                              <li>Illustrator</li>
+                              <li>XD</li>
+                              <li>SVG Animation</li>
+                              <li>Website Design</li>
+                              <li>Print Production</li>
+                          </ul>
+                      </div>
+                      <div className="col-md-4">
+                          <h2>Development</h2>
+                          <ul>
+                              <li>Angular</li>
+                              <li>React</li>
+                              <li>WordPress</li>
+                              <li>JavaScript</li>
+                              <li>PHP</li>
+                              <li>Linux</li>
+                          </ul>
+                      </div>                                                
+                  
+              </div>
+          </div>
+      );
+};

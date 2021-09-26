@@ -1,13 +1,31 @@
 import React, {useState} from "react";
 import {render} from "react-dom";
-
+import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
+import {Navbar} from "./components/shared/navbar";
+import {Home} from "./components/pages/Home";
+import {Biography} from "./components/pages/Biography";
+import {Portfolio} from "./components/pages/Portfolio";
+import {Contact} from "./components/pages/Contact";
 
 const App = () => {
     return (
-        <div>
-            <h1>Test</h1>
-             
-        </div>
+        <Router>
+            <Navbar/>
+                <Switch>
+                    <Route exact path="/">
+                        <Home/>
+                    </Route>
+                    <Route exact path="/biography">
+                            <Biography/>
+                    </Route>
+                    <Route exact path="/portfolio">
+                            <Portfolio/>
+                    </Route>
+                    <Route exact path="/contact">
+                            <Contact/>
+                    </Route>
+                </Switch>
+        </Router>
     )
 };
 
