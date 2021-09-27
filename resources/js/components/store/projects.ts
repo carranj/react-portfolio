@@ -1,6 +1,5 @@
 import { api } from '../../api';
 import { State } from "./state";
-import { Subscription } from 'rxjs';
 
 interface Project {
     id:number;
@@ -9,6 +8,18 @@ interface Project {
     featured:number;
     url:string;
     shortDescription:string;
+    projectType:string;
+}
+
+interface Skills {
+    id:number;
+    description:string;
+    class:string;
+}
+
+interface Description {
+    order:number;
+    title:string;
     description:string;
 }
 
@@ -16,11 +27,15 @@ class ProjectsState {
     
     public projects: State<Project[]>;
     public selectedProject: State<Project | null>;
+    public skills: State<Skills[]>;
+    public descriptions: State<Description[]>;
 
 
     constructor(){
         this.selectedProject = new State<Project | null>(null);
         this.projects = new State<Project[]>([]);
+        this.skills = new State<Skills[]>([]);
+        this.descriptions = new State<Description[]>([]);
             this.fetchAllProjects();
 
     }
@@ -47,8 +62,24 @@ class ProjectsState {
                 }
             });
             const projectItem = response.data as Project;
-
             this.selectedProject.next(projectItem);
+
+
+            const skillsResponse = await api.get('get-project-skills', {
+                params: {
+                    id:projectItem.id
+                }
+            });
+            const skills = skillsResponse.data.map((skill: any) => skill as Skills);
+            this.skills.next(skills);
+
+            const descriptionResponse = await api.get('get-project-description', {
+                params: {
+                    id:projectItem.id
+                }
+            });
+            const descriptions = descriptionResponse.data.map((description: any) => description as Description);
+            this.descriptions.next(descriptions);
             
             return Promise.resolve();
             

@@ -2356,6 +2356,8 @@ var store_1 = __webpack_require__(/*! ../store */ "./resources/js/components/sto
 
 var Project = function Project() {
   var selectedProject = store_1.projectsState.selectedProject.hook()[0];
+  var skills = store_1.projectsState.skills.hook()[0];
+  var descriptions = store_1.projectsState.descriptions.hook()[0];
   var shortname = (0, react_router_dom_1.useParams)().shortname;
   (0, react_1.useEffect)(function () {
     if (shortname !== null) {
@@ -2378,9 +2380,20 @@ var Project = function Project() {
     className: "col-md-12"
   }, react_1["default"].createElement("h2", {
     className: "d-inline float-left mr-3"
-  }, "Skills"), react_1["default"].createElement("div", {
+  }, "Skills: "), react_1["default"].createElement("div", {
     className: "skills d-inline float-left"
-  }, react_1["default"].createElement("p", null, "test"))))), react_1["default"].createElement("p", null, "I'm a web developer and specialize in web development. I primarily build Angular applications and custom WordPress websites. I serve as a Full Stack Developer in Houston. Click here to see samples of my featured work or continue reading below to learn more of my interactive journey."))), react_1["default"].createElement("div", {
+  }, skills.map(function (skill, index) {
+    return react_1["default"].createElement("span", {
+      className: "skill " + skill["class"],
+      key: index
+    }, skill.description);
+  }))), react_1["default"].createElement("div", {
+    className: "col-md-12 mt-4"
+  }, descriptions.map(function (description, index) {
+    return react_1["default"].createElement("div", {
+      key: index
+    }, react_1["default"].createElement("h3", null, description.title), react_1["default"].createElement("p", null, description.description));
+  })))))), react_1["default"].createElement("div", {
     className: "col-md-4 profilephoto text-center"
   }, react_1["default"].createElement("img", {
     className: "img-fluid profile-photo",
@@ -2642,6 +2655,8 @@ var ProjectsState = function () {
   function ProjectsState() {
     this.selectedProject = new state_1.State(null);
     this.projects = new state_1.State([]);
+    this.skills = new state_1.State([]);
+    this.descriptions = new state_1.State([]);
     this.fetchAllProjects();
   }
 
@@ -2686,11 +2701,11 @@ var ProjectsState = function () {
 
   ProjectsState.prototype.fetchProject = function (shortname) {
     return __awaiter(this, void 0, void 0, function () {
-      var response, projectItem, e_2;
+      var response, projectItem, skillsResponse, skills, descriptionResponse, descriptions, e_2;
       return __generator(this, function (_a) {
         switch (_a.label) {
           case 0:
-            _a.trys.push([0, 2,, 3]);
+            _a.trys.push([0, 4,, 5]);
 
             return [4
             /*yield*/
@@ -2704,17 +2719,45 @@ var ProjectsState = function () {
             response = _a.sent();
             projectItem = response.data;
             this.selectedProject.next(projectItem);
+            return [4
+            /*yield*/
+            , api_1.api.get('get-project-skills', {
+              params: {
+                id: projectItem.id
+              }
+            })];
+
+          case 2:
+            skillsResponse = _a.sent();
+            skills = skillsResponse.data.map(function (skill) {
+              return skill;
+            });
+            this.skills.next(skills);
+            return [4
+            /*yield*/
+            , api_1.api.get('get-project-description', {
+              params: {
+                id: projectItem.id
+              }
+            })];
+
+          case 3:
+            descriptionResponse = _a.sent();
+            descriptions = descriptionResponse.data.map(function (description) {
+              return description;
+            });
+            this.descriptions.next(descriptions);
             return [2
             /*return*/
             , Promise.resolve()];
 
-          case 2:
+          case 4:
             e_2 = _a.sent();
             return [2
             /*return*/
             , Promise.reject(e_2)];
 
-          case 3:
+          case 5:
             return [2
             /*return*/
             ];

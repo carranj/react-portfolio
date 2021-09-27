@@ -4,6 +4,8 @@ import { projectsState } from "../store";
 
 export const Project = () => {
     const [selectedProject] = projectsState.selectedProject.hook();
+    const [skills] = projectsState.skills.hook();
+    const [descriptions] = projectsState.descriptions.hook();
     const {shortname} = useParams<{shortname:string}>();
 
     useEffect( ()=>{
@@ -12,7 +14,6 @@ export const Project = () => {
         }
     },[shortname]);
     
-
     return (
         <div className="container-fluid single-portfolio">
             <div className="row intro m-0">
@@ -22,14 +23,24 @@ export const Project = () => {
                         <div className="skillsSection">
                             <div className="row">
                                 <div className="col-md-12">
-                                    <h2 className="d-inline float-left mr-3">Skills</h2>
+                                    <h2 className="d-inline float-left mr-3">Skills: </h2>
                                     <div className="skills d-inline float-left">
-                                       <p>test</p>
+                                    {skills.map((skill, index) => (
+                                        <span className={"skill " + skill.class} key={index}>{skill.description}</span>
+                                    ))}
                                     </div>
+                                </div>
+                                <div className="col-md-12 mt-4">
+                                        {descriptions.map((description, index) => (
+                                            <div key={index}>
+                                                    <h3>{description.title}</h3>
+                                                <p>{description.description}</p>
+                                            </div>
+                                        ))}
+                                    
                                 </div>
                             </div>
                         </div>
-                        <p>I'm a web developer and specialize in web development. I primarily build Angular applications and custom WordPress websites. I serve as a Full Stack Developer in Houston. Click here to see samples of my featured work or continue reading below to learn more of my interactive journey.</p>
                     </div>
                 </div>
                 <div className="col-md-4 profilephoto text-center">
