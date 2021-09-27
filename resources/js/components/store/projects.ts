@@ -1,32 +1,28 @@
 import { api } from '../../api';
 import { State } from "./state";
-import { combineLatest, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 
-export interface Project {
-    id:number,
-    name:string,
-    shortname:string,
-    featured:number,
-    url:string,
-    shortDescription:string,
-    description:string
+interface Project {
+    id:number;
+    name:string;
+    shortname:string;
+    featured:number;
+    url:string;
+    shortDescription:string;
+    description:string;
 }
 
 class ProjectsState {
     
     public projects: State<Project[]>;
-    public selectedProject: State<Project | number>;
+    public selectedProject: State<Project | null>;
+
 
     constructor(){
-        this.selectedProject = new State<Project | number>(1);
+        this.selectedProject = new State<Project | null>(null);
         this.projects = new State<Project[]>([]);
             this.fetchAllProjects();
 
-            this.selectedProject.subscribe((project:any) => {
-                if(project !== null){
-                    this.fetchProject(project.id)
-                }
-            })
     }
 
     async fetchAllProjects() {
@@ -36,21 +32,25 @@ class ProjectsState {
             const portfolioItem = response.data.map((portfolioItem: any) => portfolioItem as Project);
 
             this.projects.next(portfolioItem);
-            this.selectedProject.next(portfolioItem[0]);
+
+            return Promise.resolve();
 
         } catch (e) {
             return Promise.reject(e);
         }
     };
-    async fetchProject(id:number) {
+    async fetchProject(shortname:string) {
         try{
             const response = await api.get('get-project', {
                 params: {
-                    id:id
+                    shortname:shortname
                 }
             });
-            const projectItem = response.data.map((selectedItem: any) => selectedItem as Project);
-            this.selectedProject.next(projectItem[0]);
+            const projectItem = response.data as Project;
+
+            this.selectedProject.next(projectItem);
+            
+            return Promise.resolve();
             
         } catch(e){
             return Promise.reject(e);

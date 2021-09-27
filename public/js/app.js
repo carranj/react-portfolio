@@ -2227,7 +2227,7 @@ var Home = function Home() {
     className: "col-md-12"
   }, react_1["default"].createElement("div", {
     className: "intro"
-  }, react_1["default"].createElement("h1", null, "Jose Carranco"), react_1["default"].createElement("h2", null, "Strategy, Design, Development")))));
+  }, react_1["default"].createElement("h1", null, "TVI MarketPro3"), react_1["default"].createElement("h2", null, "Strategy, Design, Development")))));
 };
 
 exports.Home = Home;
@@ -2238,6 +2238,72 @@ exports.Home = Home;
 /*!*****************************************************!*\
   !*** ./resources/js/components/pages/Portfolio.tsx ***!
   \*****************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.Portfolio = void 0;
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+var store_1 = __webpack_require__(/*! ../store */ "./resources/js/components/store/index.ts");
+
+var Portfolio = function Portfolio() {
+  var projects = store_1.projectsState.projects.hook()[0];
+  return react_1["default"].createElement("div", {
+    className: "container-fluid portfolio p-0"
+  }, react_1["default"].createElement("div", {
+    className: "portfolio-landing-intro"
+  }, react_1["default"].createElement("div", {
+    className: "row m-0"
+  }, react_1["default"].createElement("div", {
+    className: "col-md-6 offset-md-1"
+  }, react_1["default"].createElement("h1", null, "Portfolio"), react_1["default"].createElement("p", null, " Some of my featured work is listed below. These projects include custom WordPress sites, Angular applications, advanced JavaScript projects, and custom branding projects.")), react_1["default"].createElement("div", {
+    className: "col-md-5"
+  }))), react_1["default"].createElement("div", {
+    className: "portfoliolists"
+  }, react_1["default"].createElement("div", {
+    className: "row m-0"
+  }, projects.map(function (project, index) {
+    return react_1["default"].createElement("div", {
+      key: index,
+      className: "col-md-4"
+    }, react_1["default"].createElement("div", {
+      className: "portfolio-item"
+    }, react_1["default"].createElement("div", {
+      className: "img-placement"
+    }, react_1["default"].createElement("img", {
+      className: "img-fluid profile-photo",
+      src: "/images/projects/" + project.shortname + ".jpg",
+      alt: ""
+    })), react_1["default"].createElement("div", {
+      className: "portfolio-content"
+    }, react_1["default"].createElement("h2", null, react_1["default"].createElement(react_router_dom_1.Link, {
+      to: "/portfolio/" + project.shortname
+    }, project.name)), react_1["default"].createElement("p", null, project.shortDescription))));
+  }))));
+};
+
+exports.Portfolio = Portfolio;
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/Project.tsx":
+/*!***************************************************!*\
+  !*** ./resources/js/components/pages/Project.tsx ***!
+  \***************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -2280,7 +2346,7 @@ var __importStar = this && this.__importStar || function (mod) {
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.Portfolio = void 0;
+exports.Project = void 0;
 
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
@@ -2288,81 +2354,14 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 
 var store_1 = __webpack_require__(/*! ../store */ "./resources/js/components/store/index.ts");
 
-var Portfolio = function Portfolio() {
-  var projects = store_1.projectsState.projects.hook()[0];
-
-  var _a = store_1.projectsState.selectedProject.hook(),
-      selectedProject = _a[0],
-      setSelectedProject = _a[1];
-
-  (0, react_1.useEffect)(function () {
-    if (selectedProject !== null) {}
-
-    ;
-  }, [selectedProject]);
-  return react_1["default"].createElement("div", {
-    className: "container-fluid portfolio p-0"
-  }, react_1["default"].createElement("div", {
-    className: "portfolio-landing-intro"
-  }, react_1["default"].createElement("div", {
-    className: "row m-0"
-  }, react_1["default"].createElement("div", {
-    className: "col-md-6 offset-md-1"
-  }, react_1["default"].createElement("h1", null, "Portfolio"), react_1["default"].createElement("p", null, " Some of my featured work is listed below. These projects include custom WordPress sites, Angular applications, advanced JavaScript projects, and custom branding projects.")), react_1["default"].createElement("div", {
-    className: "col-md-5"
-  }))), react_1["default"].createElement("div", {
-    className: "portfoliolists"
-  }, react_1["default"].createElement("div", {
-    className: "row m-0"
-  }, projects.map(function (project) {
-    return react_1["default"].createElement("div", {
-      className: "col-md-4"
-    }, react_1["default"].createElement("div", {
-      className: "portfolio-item"
-    }, react_1["default"].createElement("div", {
-      className: "img-placement"
-    }, react_1["default"].createElement("img", {
-      className: "img-fluid profile-photo",
-      src: "/images/projects/" + project.shortname + ".jpg",
-      alt: ""
-    })), react_1["default"].createElement("div", {
-      className: "portfolio-content"
-    }, react_1["default"].createElement("h2", null, react_1["default"].createElement(react_router_dom_1.Link, {
-      to: "/portfolio/" + project.shortname,
-      onClick: function onClick() {
-        setSelectedProject(project.id);
-      }
-    }, project.name)), react_1["default"].createElement("p", null, project.shortDescription))));
-  }))));
-};
-
-exports.Portfolio = Portfolio;
-
-/***/ }),
-
-/***/ "./resources/js/components/pages/Project.tsx":
-/*!***************************************************!*\
-  !*** ./resources/js/components/pages/Project.tsx ***!
-  \***************************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports.Project = void 0;
-
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-
 var Project = function Project() {
+  var selectedProject = store_1.projectsState.selectedProject.hook()[0];
+  var shortname = (0, react_router_dom_1.useParams)().shortname;
+  (0, react_1.useEffect)(function () {
+    if (shortname !== null) {
+      store_1.projectsState.fetchProject(shortname);
+    }
+  }, [shortname]);
   return react_1["default"].createElement("div", {
     className: "container-fluid single-portfolio"
   }, react_1["default"].createElement("div", {
@@ -2371,7 +2370,7 @@ var Project = function Project() {
     className: "col-md-8"
   }, react_1["default"].createElement("div", {
     className: "name"
-  }, react_1["default"].createElement("div", {
+  }, react_1["default"].createElement("h1", null, selectedProject === null || selectedProject === void 0 ? void 0 : selectedProject.name), react_1["default"].createElement("div", {
     className: "skillsSection"
   }, react_1["default"].createElement("div", {
     className: "row"
@@ -2381,9 +2380,13 @@ var Project = function Project() {
     className: "d-inline float-left mr-3"
   }, "Skills"), react_1["default"].createElement("div", {
     className: "skills d-inline float-left"
-  })))), react_1["default"].createElement("p", null, "I'm a web developer and specialize in web development. I primarily build Angular applications and custom WordPress websites. I serve as a Full Stack Developer in Houston. Click here to see samples of my featured work or continue reading below to learn more of my interactive journey."))), react_1["default"].createElement("div", {
+  }, react_1["default"].createElement("p", null, "test"))))), react_1["default"].createElement("p", null, "I'm a web developer and specialize in web development. I primarily build Angular applications and custom WordPress websites. I serve as a Full Stack Developer in Houston. Click here to see samples of my featured work or continue reading below to learn more of my interactive journey."))), react_1["default"].createElement("div", {
     className: "col-md-4 profilephoto text-center"
-  })));
+  }, react_1["default"].createElement("img", {
+    className: "img-fluid profile-photo",
+    src: "/images/projects/" + (selectedProject === null || selectedProject === void 0 ? void 0 : selectedProject.shortname) + ".jpg",
+    alt: ""
+  }))));
 };
 
 exports.Project = Project;
@@ -2637,16 +2640,9 @@ var state_1 = __webpack_require__(/*! ./state */ "./resources/js/components/stor
 
 var ProjectsState = function () {
   function ProjectsState() {
-    var _this = this;
-
-    this.selectedProject = new state_1.State(1);
+    this.selectedProject = new state_1.State(null);
     this.projects = new state_1.State([]);
     this.fetchAllProjects();
-    this.selectedProject.subscribe(function (project) {
-      if (project !== null) {
-        _this.fetchProject(project.id);
-      }
-    });
   }
 
   ProjectsState.prototype.fetchAllProjects = function () {
@@ -2667,10 +2663,9 @@ var ProjectsState = function () {
               return portfolioItem;
             });
             this.projects.next(portfolioItem);
-            this.selectedProject.next(portfolioItem[0]);
-            return [3
-            /*break*/
-            , 3];
+            return [2
+            /*return*/
+            , Promise.resolve()];
 
           case 2:
             e_1 = _a.sent();
@@ -2689,7 +2684,7 @@ var ProjectsState = function () {
 
   ;
 
-  ProjectsState.prototype.fetchProject = function (id) {
+  ProjectsState.prototype.fetchProject = function (shortname) {
     return __awaiter(this, void 0, void 0, function () {
       var response, projectItem, e_2;
       return __generator(this, function (_a) {
@@ -2701,19 +2696,17 @@ var ProjectsState = function () {
             /*yield*/
             , api_1.api.get('get-project', {
               params: {
-                id: id
+                shortname: shortname
               }
             })];
 
           case 1:
             response = _a.sent();
-            projectItem = response.data.map(function (selectedItem) {
-              return selectedItem;
-            });
-            this.selectedProject.next(projectItem[0]);
-            return [3
-            /*break*/
-            , 3];
+            projectItem = response.data;
+            this.selectedProject.next(projectItem);
+            return [2
+            /*return*/
+            , Promise.resolve()];
 
           case 2:
             e_2 = _a.sent();
@@ -2843,8 +2836,6 @@ var react_dom_1 = __webpack_require__(/*! react-dom */ "./node_modules/react-dom
 
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
-var navbar_1 = __webpack_require__(/*! ./components/shared/navbar */ "./resources/js/components/shared/navbar.tsx");
-
 var Home_1 = __webpack_require__(/*! ./components/pages/Home */ "./resources/js/components/pages/Home.tsx");
 
 var Biography_1 = __webpack_require__(/*! ./components/pages/Biography */ "./resources/js/components/pages/Biography.tsx");
@@ -2855,22 +2846,30 @@ var Project_1 = __webpack_require__(/*! ./components/pages/Project */ "./resourc
 
 var Contact_1 = __webpack_require__(/*! ./components/pages/Contact */ "./resources/js/components/pages/Contact.tsx");
 
+var navbar_1 = __webpack_require__(/*! ./components/shared/navbar */ "./resources/js/components/shared/navbar.tsx");
+
 var App = function App() {
-  return react_1["default"].createElement(react_router_dom_1.BrowserRouter, null, react_1["default"].createElement(navbar_1.Navbar, null), react_1["default"].createElement(react_router_dom_1.Switch, null, react_1["default"].createElement(react_router_dom_1.Route, {
+  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(react_router_dom_1.BrowserRouter, null, react_1["default"].createElement(navbar_1.Navbar, null), react_1["default"].createElement(react_router_dom_1.Switch, null, react_1["default"].createElement(react_router_dom_1.Route, {
     exact: true,
-    path: "/"
-  }, react_1["default"].createElement(Home_1.Home, null)), react_1["default"].createElement(react_router_dom_1.Route, {
+    path: "/",
+    component: Home_1.Home
+  }), react_1["default"].createElement(react_router_dom_1.Route, {
     exact: true,
-    path: "/biography"
-  }, react_1["default"].createElement(Biography_1.Biography, null)), react_1["default"].createElement(react_router_dom_1.Route, {
+    path: "/biography",
+    component: Biography_1.Biography
+  }), react_1["default"].createElement(react_router_dom_1.Route, {
     exact: true,
-    path: "/portfolio"
-  }, react_1["default"].createElement(Portfolio_1.Portfolio, null)), react_1["default"].createElement(react_router_dom_1.Route, {
-    path: "/portfolio/:shortname"
-  }, react_1["default"].createElement(Project_1.Project, null)), react_1["default"].createElement(react_router_dom_1.Route, {
+    path: "/portfolio",
+    component: Portfolio_1.Portfolio
+  }), react_1["default"].createElement(react_router_dom_1.Route, {
     exact: true,
-    path: "/contact"
-  }, react_1["default"].createElement(Contact_1.Contact, null))));
+    path: "/portfolio/:shortname",
+    component: Project_1.Project
+  }), react_1["default"].createElement(react_router_dom_1.Route, {
+    exact: true,
+    path: "/contact",
+    component: Contact_1.Contact
+  }))));
 };
 
 (0, react_dom_1.render)(react_1["default"].createElement(App, null), document.getElementById('app'));
