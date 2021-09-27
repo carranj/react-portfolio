@@ -2243,10 +2243,38 @@ exports.Home = Home;
 "use strict";
 
 
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
 };
 
 Object.defineProperty(exports, "__esModule", ({
@@ -2254,12 +2282,24 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports.Portfolio = void 0;
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 var store_1 = __webpack_require__(/*! ../store */ "./resources/js/components/store/index.ts");
 
 var Portfolio = function Portfolio() {
   var projects = store_1.projectsState.projects.hook()[0];
+
+  var _a = store_1.projectsState.selectedProject.hook(),
+      selectedProject = _a[0],
+      setSelectedProject = _a[1];
+
+  (0, react_1.useEffect)(function () {
+    if (selectedProject !== null) {}
+
+    ;
+  }, [selectedProject]);
   return react_1["default"].createElement("div", {
     className: "container-fluid portfolio p-0"
   }, react_1["default"].createElement("div", {
@@ -2274,18 +2314,79 @@ var Portfolio = function Portfolio() {
     className: "portfoliolists"
   }, react_1["default"].createElement("div", {
     className: "row m-0"
-  }, react_1["default"].createElement("div", {
-    className: "col-md-4"
-  }, react_1["default"].createElement("div", {
-    className: "portfolio-item"
-  }, react_1["default"].createElement("div", {
-    className: "img-placement"
-  }), react_1["default"].createElement("div", {
-    className: "portfolio-content"
-  }))))));
+  }, projects.map(function (project) {
+    return react_1["default"].createElement("div", {
+      className: "col-md-4"
+    }, react_1["default"].createElement("div", {
+      className: "portfolio-item"
+    }, react_1["default"].createElement("div", {
+      className: "img-placement"
+    }, react_1["default"].createElement("img", {
+      className: "img-fluid profile-photo",
+      src: "/images/projects/" + project.shortname + ".jpg",
+      alt: ""
+    })), react_1["default"].createElement("div", {
+      className: "portfolio-content"
+    }, react_1["default"].createElement("h2", null, react_1["default"].createElement(react_router_dom_1.Link, {
+      to: "/portfolio/" + project.shortname,
+      onClick: function onClick() {
+        setSelectedProject(project.id);
+      }
+    }, project.name)), react_1["default"].createElement("p", null, project.shortDescription))));
+  }))));
 };
 
 exports.Portfolio = Portfolio;
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/Project.tsx":
+/*!***************************************************!*\
+  !*** ./resources/js/components/pages/Project.tsx ***!
+  \***************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.Project = void 0;
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var Project = function Project() {
+  return react_1["default"].createElement("div", {
+    className: "container-fluid single-portfolio"
+  }, react_1["default"].createElement("div", {
+    className: "row intro m-0"
+  }, react_1["default"].createElement("div", {
+    className: "col-md-8"
+  }, react_1["default"].createElement("div", {
+    className: "name"
+  }, react_1["default"].createElement("div", {
+    className: "skillsSection"
+  }, react_1["default"].createElement("div", {
+    className: "row"
+  }, react_1["default"].createElement("div", {
+    className: "col-md-12"
+  }, react_1["default"].createElement("h2", {
+    className: "d-inline float-left mr-3"
+  }, "Skills"), react_1["default"].createElement("div", {
+    className: "skills d-inline float-left"
+  })))), react_1["default"].createElement("p", null, "I'm a web developer and specialize in web development. I primarily build Angular applications and custom WordPress websites. I serve as a Full Stack Developer in Houston. Click here to see samples of my featured work or continue reading below to learn more of my interactive journey."))), react_1["default"].createElement("div", {
+    className: "col-md-4 profilephoto text-center"
+  })));
+};
+
+exports.Project = Project;
 
 /***/ }),
 
@@ -2536,8 +2637,16 @@ var state_1 = __webpack_require__(/*! ./state */ "./resources/js/components/stor
 
 var ProjectsState = function () {
   function ProjectsState() {
+    var _this = this;
+
+    this.selectedProject = new state_1.State(1);
     this.projects = new state_1.State([]);
     this.fetchAllProjects();
+    this.selectedProject.subscribe(function (project) {
+      if (project !== null) {
+        _this.fetchProject(project.id);
+      }
+    });
   }
 
   ProjectsState.prototype.fetchAllProjects = function () {
@@ -2548,7 +2657,6 @@ var ProjectsState = function () {
           case 0:
             _a.trys.push([0, 2,, 3]);
 
-            console.log('fetching projects');
             return [4
             /*yield*/
             , api_1.api.get('get-all-projects')];
@@ -2559,6 +2667,7 @@ var ProjectsState = function () {
               return portfolioItem;
             });
             this.projects.next(portfolioItem);
+            this.selectedProject.next(portfolioItem[0]);
             return [3
             /*break*/
             , 3];
@@ -2579,6 +2688,48 @@ var ProjectsState = function () {
   };
 
   ;
+
+  ProjectsState.prototype.fetchProject = function (id) {
+    return __awaiter(this, void 0, void 0, function () {
+      var response, projectItem, e_2;
+      return __generator(this, function (_a) {
+        switch (_a.label) {
+          case 0:
+            _a.trys.push([0, 2,, 3]);
+
+            return [4
+            /*yield*/
+            , api_1.api.get('get-project', {
+              params: {
+                id: id
+              }
+            })];
+
+          case 1:
+            response = _a.sent();
+            projectItem = response.data.map(function (selectedItem) {
+              return selectedItem;
+            });
+            this.selectedProject.next(projectItem[0]);
+            return [3
+            /*break*/
+            , 3];
+
+          case 2:
+            e_2 = _a.sent();
+            return [2
+            /*return*/
+            , Promise.reject(e_2)];
+
+          case 3:
+            return [2
+            /*return*/
+            ];
+        }
+      });
+    });
+  };
+
   return ProjectsState;
 }();
 
@@ -2700,6 +2851,8 @@ var Biography_1 = __webpack_require__(/*! ./components/pages/Biography */ "./res
 
 var Portfolio_1 = __webpack_require__(/*! ./components/pages/Portfolio */ "./resources/js/components/pages/Portfolio.tsx");
 
+var Project_1 = __webpack_require__(/*! ./components/pages/Project */ "./resources/js/components/pages/Project.tsx");
+
 var Contact_1 = __webpack_require__(/*! ./components/pages/Contact */ "./resources/js/components/pages/Contact.tsx");
 
 var App = function App() {
@@ -2713,6 +2866,8 @@ var App = function App() {
     exact: true,
     path: "/portfolio"
   }, react_1["default"].createElement(Portfolio_1.Portfolio, null)), react_1["default"].createElement(react_router_dom_1.Route, {
+    path: "/portfolio/:shortname"
+  }, react_1["default"].createElement(Project_1.Project, null)), react_1["default"].createElement(react_router_dom_1.Route, {
     exact: true,
     path: "/contact"
   }, react_1["default"].createElement(Contact_1.Contact, null))));

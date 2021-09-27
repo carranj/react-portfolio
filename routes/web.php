@@ -16,6 +16,7 @@ use App\Http\Controllers\ProjectsController;
 
 Route::prefix('api')->group(function () {
     Route::get('/get-all-projects', [ProjectsController::class, 'getAllProjects']);
+    Route::get('/get-project', [ProjectsController::class, 'getProject']);
 });
 
 Route::get('/{any}', function () {

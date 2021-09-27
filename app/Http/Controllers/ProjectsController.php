@@ -13,4 +13,14 @@ class ProjectsController extends Controller
 
         return json_decode($projects);
     }
+
+    public function getProject(Request $request){
+        $id = $request->input('id');
+
+        $project = DB::table('projects')
+        ->where('id', $id)
+        ->first();
+
+        return json_encode($project);
+    }
 }
