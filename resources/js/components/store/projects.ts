@@ -8,7 +8,6 @@ interface Project {
     featured:number;
     url:string;
     shortDescription:string;
-    projectType:string;
 }
 
 interface Skills {

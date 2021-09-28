@@ -42,6 +42,7 @@ class ProjectsController extends Controller
         $project = DB::table('project_skills')
             ->join('skills', 'project_skills.skillId', '=', 'skills.skillId')
             ->select('skills.skillId AS id', 'skills.skillName as description', 'skills.className AS class')
+            ->where('project_skills.projectId', $id)
             ->get();
 
         return json_encode($project);
@@ -58,6 +59,7 @@ class ProjectsController extends Controller
         $project = DB::table('project_description')
             ->join('projects', 'project_description.projectId', '=', 'projects.id')
             ->select('project_description.order', 'project_description.title', 'project_description.description')
+            ->where('projects.id', $id)
             ->orderBy('project_description.order', 'ASC')
             ->get();
 
