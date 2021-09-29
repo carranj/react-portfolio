@@ -7,7 +7,7 @@ export const Home = () => {
           <div className="row">
               <div className="col-md-12">
                     <div className="intro">
-                        <h1>TVI MarketPro3</h1>
+                        <h1>Jose Carranco</h1>
                         <h2>Strategy, Design, Development</h2>
                     </div>
               </div>
