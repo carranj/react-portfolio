@@ -1,0 +1,147 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+button {
+    background-color: #0068FF;
+    border: none;
+    color: #FFF;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    user-select: none;
+}
+
+button:hover,
+button:active {
+    color: #FAF000;
+}
+
+button:active {
+    font-size: 11px;
+}
+
+.label {
+    color: #0D2A4D;
+    position: absolute;
+    margin-left: 10px;
+    top: 35px;
+}
+
+body {
+    margin: 0px;
+}
+
+#ad {
+    display: block;
+    border: rgb(145, 153, 153) 1px solid;
+    overflow: hidden;
+    width: 300px;
+    height: 250px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+.collapsed .buttons {
+    bottom: 30px;
+    left: 10px;
+}
+
+#closeBttn {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 10;
+    opacity: 0;
+}
+#arrow-expand {
+    top: 0px;
+    left: 35px;
+    width: 30px;
+    height: 250px;
+    position: absolute;
+    visibility: hidden;
+}
+#frame1 {
+    top: 0px;
+    left: -204px;
+    width: 300px;
+    height: 250px;
+    position: absolute;
+}
+#frame2 {
+    top: 0px;
+    left: 0px;
+    width: 300px;
+    height: 250px;
+    position: absolute;
+    visibility: hidden;
+}
+#frame3 {
+    top: 0px;
+    left: 0px;
+    width: 300px;
+    height: 250px;
+    position: absolute;
+    visibility: hidden;
+}
+#redbar {
+    top: 0px;
+    right: 505px;
+    width: 504px;
+    height: 250px;
+    position: absolute;
+}
+#bluebar {
+    top: 0px;
+    right: 505px;
+    width: 504px;
+    height: 250px;
+    position: absolute;
+}
+
+#expandable-bttn {
+    top: 0px;
+    right: 0px;
+    width: 504px;
+    height: 250px;
+    position: absolute;
+}
+
+#logo {
+    top: 0px;
+    left: 0px;
+    width: 110px;
+    height: 80px;
+    position: absolute;
+}
+#expandable-content-frame1{
+    top: 300px;
+    left: 0px;
+    width: 300px;
+    height: 250px;
+    position: absolute;
+}
+#expandable-content-frame2{
+    top: 300px;
+    left: 0px;
+    width: 300px;
+    height: 250px;
+    position: absolute;
+}
+#expandable-content-frame3{
+    top: 300px;
+    left: 0px;
+    width: 300px;
+    height: 250px;
+    position: absolute;
+}
