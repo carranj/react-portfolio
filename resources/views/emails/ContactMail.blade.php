@@ -8,9 +8,9 @@
 </head>
 <body>
     <h1>Message Details</h1>
-    <p> Name: {{$details['fName']}} {{$details['lName']}}</p>
-    <p> Phone: {{$details['phone']}}</p>
-    <p> email: {{$details['email']}}</p>
-    <p> message: {{$details['message']}}</p>
+    <p> Name: {{$fName}} {{$lName}}</p>
+    <p> Phone: {{$phone}}</p>
+    <p> email: {{$email}}</p>
+    <p> message: {{$message}}</p>
 </body>
 </html>

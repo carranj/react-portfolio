@@ -14,7 +14,7 @@ class ContactController extends Controller
         $to_name = $data['fName'] . ' ' . $data['lName'];
         $to_email = $data['email'];
 
-        Mail::send('emails.mail', $data, function ($message) use ($to_name, $to_email) {
+        Mail::send('emails.ContactMail', $data, function ($message) use ($to_name, $to_email) {
             $message->to('carranco.jose.r@gmail.com', 'Jose Carranco')
                 ->subject('Portfolio Contact form filled');
 
