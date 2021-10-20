@@ -96,7 +96,6 @@ header {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 30px;
             h1 {
                 font-size: 60px;
             }
@@ -177,6 +176,9 @@ header {
                 }
             }
         }
+    }
+    .categoryFilters {
+        background: #151515;
     }
 }
 .single-portfolio,
