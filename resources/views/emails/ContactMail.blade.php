@@ -12,5 +12,6 @@
     <p> Phone: {{$phone}}</p>
     <p> email: {{$email}}</p>
     <p> message: {{$message}}</p>
+    
 </body>
 </html>
