@@ -14,6 +14,6 @@ class ContactController extends Controller
 
         Mail::to('carranco.jose.r@gmail.com')->send(new ContactMail($data));
 
-        return back()->with('message_sent', 'Message sent');
+        return response(["message_sent" => 'message sent'], 200);;
     }
 }
