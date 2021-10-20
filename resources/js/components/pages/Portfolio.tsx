@@ -18,6 +18,11 @@ export const Portfolio = () => {
         </div>
 
         <div className="portfoliolists">
+          <div className="row mb-3 categoryFilters">
+            <div className="col-md-12">
+              <h4 className="text-center">Enter Passcode to view all projects</h4>
+            </div>
+          </div>
           <div className="row m-0">
             {projects.map((project, index) => (
               <div key={index} className="col-md-4">

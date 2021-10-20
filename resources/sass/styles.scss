@@ -96,7 +96,6 @@ header {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 30px;
             h1 {
                 font-size: 60px;
             }
@@ -323,6 +322,9 @@ header {
     @media screen and (min-width: 768px) {
         overflow: hidden;
     }
+}
+.categoryFilters {
+    background: #151515;
 }
 
 .btn {
