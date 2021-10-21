@@ -176,6 +176,9 @@ header ul li a:hover {
 .portfolio .portfoliolists .portfolio-item .portfolio-content p {
   font-size: 16px;
 }
+.portfolio .categoryFilters {
+  background: #151515;
+}
 
 .single-portfolio,
 .contact {

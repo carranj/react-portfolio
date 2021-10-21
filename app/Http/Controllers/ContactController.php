@@ -10,6 +10,12 @@ class ContactController extends Controller
 {
     public function contactSubmit(Request $request)
     {
+        $request->validate([
+            'data.fName' => 'required | string',
+            'data.lName' => 'required | string',
+            'data.email' => 'required | email'
+        ]);
+
         $data = request()->input('data');
 
         Mail::to('carranco.jose.r@gmail.com')
