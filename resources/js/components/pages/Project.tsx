@@ -26,7 +26,7 @@ export const Project = () => {
                                     <h2 className="d-inline float-left mr-3">Skills: </h2>
                                     <div className="skills d-inline float-left">
                                     {skills.map((skill, index) => (
-                                        <span className={"skill " + skill.class} key={index}>{skill.description}</span>
+                                        <span className={"skill " + skill.classname} key={index}>{skill.skillName}</span>
                                     ))}
                                     </div>
                                 </div>

@@ -13,6 +13,24 @@ class ProjectsController extends Controller
             ->select()
             ->get();
 
+        $projects->map(function ($project) {
+            $project->skills =
+                DB::table('project_skills')
+                ->join('skills', 'project_skills.skillId', '=', 'skills.skillId')
+                ->select('skills.skillName')
+                ->where('projectId', $project->id)
+                ->get();
+        });
+
+        return json_decode($projects);
+    }
+
+    public function getAllSkills()
+    {
+        $projects = DB::table('skills')
+            ->select()
+            ->get();
+
         return json_decode($projects);
     }
 
@@ -41,7 +59,7 @@ class ProjectsController extends Controller
 
         $project = DB::table('project_skills')
             ->join('skills', 'project_skills.skillId', '=', 'skills.skillId')
-            ->select('skills.skillId AS id', 'skills.skillName as description', 'skills.className AS class')
+            ->select('skills.skillId', 'skills.skillName', 'skills.classname')
             ->where('project_skills.projectId', $id)
             ->get();
 
