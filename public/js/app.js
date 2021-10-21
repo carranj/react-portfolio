@@ -2378,6 +2378,10 @@ var Contact = function Contact() {
       message = _f[0],
       setMessage = _f[1];
 
+  var _g = (0, react_1.useState)(false),
+      sent = _g[0],
+      setSent = _g[1];
+
   var handleSubmit = function handleSubmit() {
     return __awaiter(void 0, void 0, void 0, function () {
       var data;
@@ -2390,7 +2394,11 @@ var Contact = function Contact() {
           'phone': phone,
           'message': message
         };
-        contact_1.contactState.ContactSubmit(data);
+        contact_1.contactState.ContactSubmit(data).then(function (res) {
+          return setSent(true);
+        })["catch"](function (error) {
+          return console.log(error);
+        });
         return [2
         /*return*/
         ];
@@ -2406,8 +2414,10 @@ var Contact = function Contact() {
     className: "col-md-6 "
   }, react_1["default"].createElement("div", {
     className: "intro"
-  }, react_1["default"].createElement("h1", null, "Reach out to me!"), react_1["default"].createElement("hr", null), react_1["default"].createElement("div", {
-    className: "mb-3"
+  }, sent && react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("h2", {
+    className: "text-center mt-5"
+  }, " Thank you for your reaching out. I will be in touch shortly!")), !sent && react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("h1", null, "Reach out to me!"), react_1["default"].createElement("hr", null), react_1["default"].createElement("div", {
+    className: "mb-3 form"
   }, react_1["default"].createElement("label", null, "Reason for reaching out:", react_1["default"].createElement("select", {
     className: "form-select",
     value: reason,
@@ -2495,7 +2505,7 @@ var Contact = function Contact() {
     type: "submit",
     className: "btn btn-primary mb-3",
     onClick: handleSubmit
-  })))));
+  }))))));
 };
 
 exports.Contact = Contact;
