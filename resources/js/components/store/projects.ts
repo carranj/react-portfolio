@@ -30,9 +30,11 @@ class ProjectsState {
     public skills: State<Skills[]>;
     public allSkills: State<Skills[]>;
     public descriptions: State<Description[]>;
+    public isAuthorized: State <Number>;
 
 
     constructor(){
+        this.isAuthorized = new State<Number>(0);
         this.selectedProject = new State<Project | null>(null);
         this.projects = new State<Project[]>([]);
         this.skills = new State<Skills[]>([]);
@@ -42,9 +44,29 @@ class ProjectsState {
 
     }
 
+    async fetchAuthorization(authCode:string) {
+        try{
+            const response = await api.get('verify', {
+                params:{
+                    authCode: authCode
+                }
+            });
+
+            const authResponse = response.data;
+            console.log(authResponse);
+            Promise.resolve();
+        } catch(e){
+            Promise.reject(e);
+        }
+    }
+
     async fetchAllProjects() {
         try {
-            const response = await api.get('get-all-projects');
+            const response = await api.get('get-all-projects',{
+                params:{
+                    authorized: this.isAuthorized.getValue()
+                }
+            });
 
             const portfolioItem = response.data.map((portfolioItem: any) => portfolioItem as Project);
 

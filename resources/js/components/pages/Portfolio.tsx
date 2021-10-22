@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import {Link } from "react-router-dom";
 import { projectsState } from "../store";
 
-import Box from '@mui/material/Box';
-import OutlinedInput from '@mui/material/OutlinedInput';
+import Button from '@mui/material/Button';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import Chip from '@mui/material/Chip';
+import TextField from '@mui/material/TextField';
+
 
 const ITEM_HEIGHT = 36;
 const ITEM_PADDING_TOP = 8;
@@ -22,25 +22,27 @@ const MenuProps = {
 };
 
 export const Portfolio = () => {
+  const [isAuthorized] = projectsState.isAuthorized.hook();
   const [projects] = projectsState.projects.hook();
   const [allSkills] = projectsState.allSkills.hook();
   const [filteredProjects, setFilteredProjects] = useState(projects);
-  const [skillName, setSkillName] = React.useState<string[]>([]);
+  const [skillName, setSkillName] = useState<string>('');
+  const [authCode, setAuthCode] = useState<string>('');
 
-  const handleChange = (event: SelectChangeEvent<typeof skillName>) => {
- 
-    const {
-      target: { value },
-    } = event;
-    setSkillName(
-      // On autofill we get a the stringified value.
-      typeof value === 'string' ? value.split(',') : value,
-    );
+  const handleChange  = (event: any) => {
+       setSkillName(event.target.value);
   };
 
-  useEffect( () => {
+  const handleAuth = async () =>{
+    projectsState.fetchAuthorization(authCode);
+  }
 
-    setFilteredProjects(skillName===[] ? projects :  projects.filter(data => data.skills  ) )
+  useEffect( () => {
+    setFilteredProjects(
+      skillName==='' ? projects :
+        projects.filter((project:any) => project.skills
+        .some((skill:any) => skill.skillName === skillName ) )
+    )
 
   }, [projects,skillName]);
 
@@ -59,29 +61,49 @@ export const Portfolio = () => {
 
         <div className="portfoliolists">
           <div className="row mb-3 categoryFilters">
-            <div className="col-md-12">
+            <div className="col-md-3">
+              <>
+                {!isAuthorized && (
+                  <FormControl sx={{ m: 1 }}>
+                    <TextField
+                      id="authorize"
+                      label="Enter Passcode"
+                      variant="outlined"
+                      onChange={(e) => setAuthCode(e.target.value)}
+                      style={{
+                        backgroundColor:'white'
+                      }}
+                      InputProps={{endAdornment: <Button variant="contained" onClick={handleAuth} >Authorize</Button>}} />
+                  </FormControl>
+                  )}
+              </>
+              <>
+
+            {isAuthorized &&(
+              <p>Authorized</p>
+            )}
+            </>
+            </div>
+            <div className="col-md-3">
             <FormControl sx={{ m: 1, width: 300 }}>
-              <InputLabel id="demo-multiple-chip-label">Skills</InputLabel>
+              <InputLabel id="select-skills">Skills</InputLabel>
               <Select
-                labelId="demo-multiple-chip-label"
-                id="demo-multiple-chip"
-                multiple
+                labelId="select-skills"
+                id="select-skill"
                 value={skillName}
+                label="Skill"
                 onChange={handleChange}
-                input={<OutlinedInput id="select-multiple-chip" label="Skills" />}
-                renderValue={(selected) => (
-                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-                    {selected.map((value) => (
-                      <Chip key={value} label={value} />
-                    ))}
-                  </Box>
-                )}
                 MenuProps={MenuProps}
                 style={{
                   backgroundColor:'white'
                 }}
 
               >
+                <MenuItem
+                    value=''
+                  >
+                    All Skills
+                  </MenuItem>
                 {allSkills.map((skill, index) => (
                   <MenuItem
                     key={skill.skillId}

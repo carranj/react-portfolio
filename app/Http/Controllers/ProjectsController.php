@@ -7,11 +7,22 @@ use Illuminate\Support\Facades\DB;
 
 class ProjectsController extends Controller
 {
-    public function getAllProjects()
+    public function getAllProjects(Request $request)
     {
-        $projects = DB::table('projects')
-            ->select()
-            ->get();
+        $request->validate([
+            'authorized' => 'required|integer'
+        ]);
+        $authorized = $request->input('authorized');
+
+        if ($authorized) {
+            $projects = DB::table('projects')
+                ->select()
+                ->get();
+        } else {
+            $projects = DB::table('projects')
+                ->where('isPrivate', 0)
+                ->get();
+        }
 
         $projects->map(function ($project) {
             $project->skills =
