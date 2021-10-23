@@ -30,11 +30,11 @@ class ProjectsState {
     public skills: State<Skills[]>;
     public allSkills: State<Skills[]>;
     public descriptions: State<Description[]>;
-    public isAuthorized: State <Number>;
+    public isAuthorized: State<number>;
 
 
     constructor(){
-        this.isAuthorized = new State<Number>(0);
+        this.isAuthorized = new State<number>(0);
         this.selectedProject = new State<Project | null>(null);
         this.projects = new State<Project[]>([]);
         this.skills = new State<Skills[]>([]);
@@ -52,8 +52,10 @@ class ProjectsState {
                 }
             });
 
-            const authResponse = response.data;
-            console.log(authResponse);
+            const authResponse = response;
+            if (authResponse.status = 201){
+                this.isAuthorized.next(1);
+            }
             Promise.resolve();
         } catch(e){
             Promise.reject(e);

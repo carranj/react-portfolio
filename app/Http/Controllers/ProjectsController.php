@@ -17,10 +17,12 @@ class ProjectsController extends Controller
         if ($authorized) {
             $projects = DB::table('projects')
                 ->select()
+                ->orderByDesc('submitDate')
                 ->get();
         } else {
             $projects = DB::table('projects')
                 ->where('isPrivate', 0)
+                ->orderByDesc('submitDate')
                 ->get();
         }
 
@@ -39,7 +41,12 @@ class ProjectsController extends Controller
     public function getAllSkills()
     {
         $projects = DB::table('skills')
-            ->select()
+            ->whereExists(function ($query) {
+                $query->select()
+                    ->from('project_skills')
+                    ->whereColumn('project_skills.skillId', 'skills.skillId');
+            })
+            ->orderBy('skillName')
             ->get();
 
         return json_decode($projects);
