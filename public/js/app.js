@@ -22252,6 +22252,7 @@ var ProjectsState = function () {
     this.allSkills = new state_1.State([]);
     this.descriptions = new state_1.State([]);
     this.fetchAllProjects();
+    this.fetchAllSkills();
   }
 
   ProjectsState.prototype.fetchAuthorization = function (authCode) {
@@ -22321,7 +22322,6 @@ var ProjectsState = function () {
               return portfolioItem;
             });
             this.projects.next(portfolioItem);
-            this.fetchAllSkills();
             return [2
             /*return*/
             , Promise.resolve()];

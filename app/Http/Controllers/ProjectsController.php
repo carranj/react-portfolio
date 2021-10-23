@@ -40,7 +40,7 @@ class ProjectsController extends Controller
 
     public function getAllSkills()
     {
-        $projects = DB::table('skills')
+        $skills = DB::table('skills')
             ->whereExists(function ($query) {
                 $query->select()
                     ->from('project_skills')
@@ -49,7 +49,7 @@ class ProjectsController extends Controller
             ->orderBy('skillName')
             ->get();
 
-        return json_decode($projects);
+        return json_decode($skills);
     }
 
     public function getProject(Request $request)

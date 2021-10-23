@@ -41,6 +41,7 @@ class ProjectsState {
         this.allSkills = new State<Skills[]>([]);
         this.descriptions = new State<Description[]>([]);
             this.fetchAllProjects();
+            this.fetchAllSkills();
 
     }
 
@@ -73,8 +74,6 @@ class ProjectsState {
             const portfolioItem = response.data.map((portfolioItem: any) => portfolioItem as Project);
 
             this.projects.next(portfolioItem);
-
-            this.fetchAllSkills();
 
             return Promise.resolve();
 
