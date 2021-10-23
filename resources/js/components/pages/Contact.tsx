@@ -50,6 +50,7 @@ export const Contact = () => {
                                                 }>
                                         <option value="general">General Inquiry</option>
                                         <option value="website">Need a website</option>
+                                        <option value="code">Request an authorization code</option>
                                         <option value="other">Other</option>
                                     </select>
                                     </label>

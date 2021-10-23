@@ -8,12 +8,13 @@ interface Project {
     featured:number;
     url:string;
     shortDescription:string;
+    skills:any[]
 }
 
 interface Skills {
-    id:number;
-    description:string;
-    class:string;
+    skillId:number;
+    skillName:string;
+    classname:string;
 }
 
 interface Description {
@@ -27,25 +28,53 @@ class ProjectsState {
     public projects: State<Project[]>;
     public selectedProject: State<Project | null>;
     public skills: State<Skills[]>;
+    public allSkills: State<Skills[]>;
     public descriptions: State<Description[]>;
+    public isAuthorized: State<number>;
 
 
     constructor(){
+        this.isAuthorized = new State<number>(0);
         this.selectedProject = new State<Project | null>(null);
         this.projects = new State<Project[]>([]);
         this.skills = new State<Skills[]>([]);
+        this.allSkills = new State<Skills[]>([]);
         this.descriptions = new State<Description[]>([]);
             this.fetchAllProjects();
 
     }
 
+    async fetchAuthorization(authCode:string) {
+        try{
+            const response = await api.get('verify', {
+                params:{
+                    authCode: authCode
+                }
+            });
+
+            const authResponse = response;
+            if (authResponse.status = 201){
+                this.isAuthorized.next(1);
+            }
+            Promise.resolve();
+        } catch(e){
+            Promise.reject(e);
+        }
+    }
+
     async fetchAllProjects() {
         try {
-            const response = await api.get('get-all-projects');
+            const response = await api.get('get-all-projects',{
+                params:{
+                    authorized: this.isAuthorized.getValue()
+                }
+            });
 
             const portfolioItem = response.data.map((portfolioItem: any) => portfolioItem as Project);
 
             this.projects.next(portfolioItem);
+
+            this.fetchAllSkills();
 
             return Promise.resolve();
 
@@ -82,6 +111,17 @@ class ProjectsState {
             
             return Promise.resolve();
             
+        } catch(e){
+            return Promise.reject(e);
+        }
+    }
+
+    async fetchAllSkills(){
+        try{
+            const response = await api.get('get-all-skills');
+            const skills = response.data.map((skill: any) => skill as Skills);
+            this.allSkills.next(skills);
+           
         } catch(e){
             return Promise.reject(e);
         }
