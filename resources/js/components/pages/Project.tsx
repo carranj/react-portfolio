@@ -24,13 +24,15 @@ export const Project = () => {
                             <div className="row">
                                 <div className="col-md-12">
                                     <h2 className="d-inline float-left mr-3">Skills: </h2>
-                                    <div className="skills d-inline float-left">
-                                    {skills.map((skill, index) => (
-                                        <span className={"skill " + skill.classname} key={index}>{skill.skillName}</span>
-                                    ))}
+                                    <div className="skills d-flex flex-wrap">
+                                        <div className="skill">
+                                            {skills.map((skill, index) => (
+                                                <p className={"skill " + skill.classname} key={index}>{skill.skillName}</p>
+                                            ))}
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="col-md-12 mt-4">
+                                <div className="col-md-12 mt-2">
                                         {descriptions.map((description, index) => (
                                             <div key={index}>
                                                     <h3>{description.title}</h3>

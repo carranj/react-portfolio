@@ -143,7 +143,15 @@ export const Portfolio = () => {
                   </div>
                   <div className="portfolio-content"> 
                 <h2><Link to={"/portfolio/" + project.shortname } >{project.name}</Link></h2>
-                <p>{project.shortDescription}</p>
+                <div className="skillsSection">
+                  <div className="skills d-flex flex-wrap">
+                    {project.skills.map((skill, index) => (
+                      <div className="skill">
+                        <p className={"skill " + skill.classname} key={index}>{skill.skillName}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
                 </div>
               </div>
             </div>  

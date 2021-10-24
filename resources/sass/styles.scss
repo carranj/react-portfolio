@@ -148,7 +148,137 @@ header {
         }
     }
 }
+.skillsSection {
+    .skills {
+        p{
+            &.skill {
+                display: inline-block;
+                padding: 7px 15px;
+                white-space: nowrap;
+                margin:0 6px 6px 0 ;
+                -moz-border-radius: 15px;
+                border-radius: 15px; /* standards-compliant: (IE) */
+                color: #f2f2f2;
+                &:before {
+                    font-family: "Font Awesome 5 Brands";
+                    font-weight: normal;
+                    font-style: normal;
+                    text-decoration: inherit;
+                    margin-right: 2px;
+                }
+    
+                &.html {
+                    background: #5f5f5f;
+                    &:before {
+                        content: "\f13b";
+                    }
+                }
+    
+                &.css {
+                    background: #005a9c;
+                    &:before {
+                        content: "\f38b";
+                    }
+                }
+    
+                &.googlewebdesigner {
+                    background: #dd4b39;
+                    &:before {
+                        content: "\f1a0";
+                    }
+                }
+    
+                &.wordpress {
+                    background: #0073aa;
+                    &:before {
+                        content: "\f19a";
+                    }
+                }
+    
+                &.bootstrap {
+                    background: #6f5499;
+                    &:before {
+                        font-family: "Helvetica Neue", Helvetica, Arial,
+                            sans-serif;
+                        content: "B";
+                        border: 1px solid #f2f2f2;
+                        padding: 0px 4px;
+                        border-radius: 3px;
+                    }
+                }
+    
+                &.vanillajs {
+                    background: #d1bea8;
+                    &:before {
+                        content: "\f3b8";
+                    }
+                }
+    
+                &.jquery {
+                    background: #b24926;
+                    &:before {
+                        content: "\f3b8";
+                    }
+                }
+    
+                &.php {
+                    background: #8892bf;
+                    &:before {
+                        content: "\f457";
+                    }
+                }
+                &.angular {
+                    background: #dd0031;
+                    &:before {
+                        content: "\f420";
+                    }
+                }
+                &.laravel {
+                    background: #ff2b20;
+                    &:before {
+                        content: "\f3bd";
+                    }
+                }
+    
+                &.e-commerce {
+                    background: #10aea2;
+                    &:before {
+                        content: "\f155";
+                    }
+                }
+    
+                &.design {
+                    background: #964b00;
+                    &:before {
+                        content: "\f1fc";
+                    }
+                }
+    
+                &.gsap {
+                    background: #61ac27;
+                    &:before {
+                        content: "\f011";
+                    }
+                }
+    
+                &.ajax {
+                    background: #97ba31;
+                    &:before {
+                        content: "\f0ec";
+                        -webkit-transform: rotate(90deg);
+                        -moz-transform: rotate(90deg);
+                        -ms-transform: rotate(90deg);
+                        -o-transform: rotate(90deg);
+                        transform: rotate(90deg);
+                    }
+                }
+            }
+        }
+    }
+}
+
 .portfolio {
+
     .portfoliolists {
         .portfolio-item {
             background: #e5dbda;
@@ -170,9 +300,22 @@ header {
                     font-size: 22px;
                     font-weight: 700;
                     margin: 5px 0;
+                    a{
+                        text-decoration:none;
+                    }
                 }
                 p {
-                    font-size: 16px;
+                    font-size: 14px;
+                }
+            }
+        }
+        .skillsSection {
+            .skills {
+                p{
+                    &.skill {
+                        padding:14px;
+                        padding:3px 10px
+                    }
                 }
             }
         }
@@ -194,121 +337,6 @@ header {
     }
     h2 {
         font-size: 1.8rem;
-    }
-    .skillsSection {
-        display: block;
-        .skills {
-            .skill {
-                margin-right: 15px;
-                padding: 7px 15px;
-                margin-bottom: 10px;
-                -moz-border-radius: 15px;
-                border-radius: 15px; /* standards-compliant: (IE) */
-                color: #f2f2f2;
-                &:before {
-                    font-family: "Font Awesome 5 Brands";
-                    font-weight: normal;
-                    font-style: normal;
-                    display: inline-block;
-                    text-decoration: inherit;
-                }
-
-                &.html {
-                    background: #5f5f5f;
-                    &:before {
-                        content: "\f13b";
-                    }
-                }
-
-                &.css {
-                    background: #005a9c;
-                    &:before {
-                        content: "\f38b";
-                    }
-                }
-
-                &.googlewebdesigner {
-                    background: #dd4b39;
-                    &:before {
-                        content: "\f1a0";
-                    }
-                }
-
-                &.wordpress {
-                    background: #0073aa;
-                    &:before {
-                        content: "\f19a";
-                    }
-                }
-
-                &.bootstrap {
-                    background: #6f5499;
-                    &:before {
-                        font-family: "Helvetica Neue", Helvetica, Arial,
-                            sans-serif;
-                        content: "B";
-                        border: 1px solid #f2f2f2;
-                        padding: 0px 4px;
-                        border-radius: 3px;
-                    }
-                }
-
-                &.vanillajs {
-                    background: #d1bea8;
-                    &:before {
-                        content: "\f3b8";
-                    }
-                }
-
-                &.jquery {
-                    background: #b24926;
-                    &:before {
-                        content: "\f3b8";
-                    }
-                }
-
-                &.php {
-                    background: #8892bf;
-                    &:before {
-                        content: "\f457";
-                    }
-                }
-
-                &.e-commerce {
-                    background: #10aea2;
-                    &:before {
-                        font-family: "Font Awesome 5 Pro";
-                        content: "\f07a";
-                    }
-                }
-
-                &.design {
-                    background: #964b00;
-                    &:before {
-                        content: "\f1fc";
-                    }
-                }
-
-                &.gsap {
-                    background: #61ac27;
-                    &:before {
-                        content: "\f011";
-                    }
-                }
-
-                &.ajax {
-                    background: #97ba31;
-                    &:before {
-                        content: "\f0ec";
-                        -webkit-transform: rotate(90deg);
-                        -moz-transform: rotate(90deg);
-                        -ms-transform: rotate(90deg);
-                        -o-transform: rotate(90deg);
-                        transform: rotate(90deg);
-                    }
-                }
-            }
-        }
     }
     .previewBtn {
         margin-top: 15px;

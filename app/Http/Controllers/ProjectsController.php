@@ -30,7 +30,7 @@ class ProjectsController extends Controller
             $project->skills =
                 DB::table('project_skills')
                 ->join('skills', 'project_skills.skillId', '=', 'skills.skillId')
-                ->select('skills.skillName')
+                ->select('skills.skillName', 'skills.classname')
                 ->where('projectId', $project->id)
                 ->get();
         });

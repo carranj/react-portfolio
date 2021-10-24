@@ -21679,7 +21679,18 @@ var Portfolio = function Portfolio() {
       className: "portfolio-content"
     }, react_1["default"].createElement("h2", null, react_1["default"].createElement(react_router_dom_1.Link, {
       to: "/portfolio/" + project.shortname
-    }, project.name)), react_1["default"].createElement("p", null, project.shortDescription))));
+    }, project.name)), react_1["default"].createElement("div", {
+      className: "skillsSection"
+    }, react_1["default"].createElement("div", {
+      className: "skills d-flex flex-wrap"
+    }, project.skills.map(function (skill, index) {
+      return react_1["default"].createElement("div", {
+        className: "skill"
+      }, react_1["default"].createElement("p", {
+        className: "skill " + skill.classname,
+        key: index
+      }, skill.skillName));
+    }))))));
   }))));
 };
 
@@ -21768,14 +21779,16 @@ var Project = function Project() {
   }, react_1["default"].createElement("h2", {
     className: "d-inline float-left mr-3"
   }, "Skills: "), react_1["default"].createElement("div", {
-    className: "skills d-inline float-left"
+    className: "skills d-flex flex-wrap"
+  }, react_1["default"].createElement("div", {
+    className: "skill"
   }, skills.map(function (skill, index) {
-    return react_1["default"].createElement("span", {
+    return react_1["default"].createElement("p", {
       className: "skill " + skill.classname,
       key: index
     }, skill.skillName);
-  }))), react_1["default"].createElement("div", {
-    className: "col-md-12 mt-4"
+  })))), react_1["default"].createElement("div", {
+    className: "col-md-12 mt-2"
   }, descriptions.map(function (description, index) {
     return react_1["default"].createElement("div", {
       key: index
