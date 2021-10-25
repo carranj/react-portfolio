@@ -28,6 +28,7 @@ export const Portfolio = () => {
   const [filteredProjects, setFilteredProjects] = useState(projects);
   const [skillName, setSkillName] = useState<string>('');
   const [authCode, setAuthCode] = useState<string>('');
+  const [isLoading] = projectsState.isLoading.hook();
 
   const handleChange  = (event: any) => {
        setSkillName(event.target.value);
@@ -38,16 +39,20 @@ export const Portfolio = () => {
   }
 
   useEffect( () => {
+
     setFilteredProjects(
       skillName==='' ? projects :
         projects.filter((project:any) => project.skills
         .some((skill:any) => skill.skillName === skillName ) )
-    )
+    );
+
 
   }, [projects,skillName]);
 
   useEffect( ()=>{
+
     projectsState.fetchAllProjects();
+
   }, [isAuthorized]);
 
 
@@ -134,28 +139,46 @@ export const Portfolio = () => {
           </div>
           <div className="row m-0">
 
-          
-            {filteredProjects.map((project, index) => (
-              <div key={index} className="col-md-4">
-                <div className="portfolio-item">
-                  <div className="img-placement">
-                    <img className="img-fluid profile-photo" src={"/images/projects/" + project.shortname + ".jpg"} alt=""/>
-                  </div>
-                  <div className="portfolio-content"> 
-                <h2><Link to={"/portfolio/" + project.shortname } >{project.name}</Link></h2>
-                <div className="skillsSection">
-                  <div className="skills d-flex flex-wrap">
-                    {project.skills.map((skill, index) => (
-                      <div className="skill">
-                        <p className={"skill " + skill.classname} key={index}>{skill.skillName}</p>
+            {
+              isLoading &&(
+                <>
+                <div className="col-md-4 offset-md-4">
+                <img src="/images/loading.gif" alt="" />
+                </div>
+                
+                </>
+              )
+            }
+            {!isLoading && (
+                
+
+                filteredProjects.map((project, index) => (
+                  <div key={index} className="col-md-4">
+                    <div className="portfolio-item">
+                      <div className="img-placement">
+                        <img className="img-fluid profile-photo" src={"/images/projects/" + project.shortname + ".jpg"} alt=""/>
                       </div>
-                    ))}
+                      <div className="portfolio-content"> 
+                    <h2><Link to={"/portfolio/" + project.shortname } >{project.name}</Link></h2>
+                    <div className="skillsSection">
+                      <div className="skills d-flex flex-wrap">
+                        {project.skills.map((skill, index) => (
+                          <div className="skill">
+                            <p className={"skill " + skill.classname} key={index}>{skill.skillName}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    </div>
                   </div>
                 </div>
-                </div>
-              </div>
-            </div>  
-            ))}  
+                  
+                ))
+
+                )
+              }
+          
+          
 
  
           </div>

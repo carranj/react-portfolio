@@ -31,10 +31,12 @@ class ProjectsState {
     public allSkills: State<Skills[]>;
     public descriptions: State<Description[]>;
     public isAuthorized: State<number>;
+    public isLoading: State<boolean>;
 
 
     constructor(){
         this.isAuthorized = new State<number>(0);
+        this.isLoading = new State<boolean>(false);
         this.selectedProject = new State<Project | null>(null);
         this.projects = new State<Project[]>([]);
         this.skills = new State<Skills[]>([]);
@@ -47,6 +49,7 @@ class ProjectsState {
 
     async fetchAuthorization(authCode:string) {
         try{
+            this.isLoading.next(true);
             const response = await api.get('verify', {
                 params:{
                     authCode: authCode
@@ -57,6 +60,7 @@ class ProjectsState {
             if (authResponse.status === 201){
                 this.isAuthorized.next(1);
             }
+            this.isLoading.next(false);
             Promise.resolve();
         } catch(e){
             Promise.reject(e);
@@ -65,6 +69,7 @@ class ProjectsState {
 
     async fetchAllProjects() {
         try {
+            this.isLoading.next(true);
             const response = await api.get('get-all-projects',{
                 params:{
                     authorized: this.isAuthorized.getValue()
@@ -74,7 +79,7 @@ class ProjectsState {
             const portfolioItem = response.data.map((portfolioItem: any) => portfolioItem as Project);
 
             this.projects.next(portfolioItem);
-
+            this.isLoading.next(false);
             return Promise.resolve();
 
         } catch (e) {
@@ -83,6 +88,7 @@ class ProjectsState {
     };
     async fetchProject(shortname:string) {
         try{
+            this.isLoading.next(true);
             const response = await api.get('get-project', {
                 params: {
                     shortname:shortname
@@ -107,7 +113,7 @@ class ProjectsState {
             });
             const descriptions = descriptionResponse.data.map((description: any) => description as Description);
             this.descriptions.next(descriptions);
-            
+            this.isLoading.next(false);
             return Promise.resolve();
             
         } catch(e){
@@ -117,9 +123,11 @@ class ProjectsState {
 
     async fetchAllSkills(){
         try{
+            this.isLoading.next(true);
             const response = await api.get('get-all-skills');
             const skills = response.data.map((skill: any) => skill as Skills);
             this.allSkills.next(skills);
+            this.isLoading.next(false);
            
         } catch(e){
             return Promise.reject(e);

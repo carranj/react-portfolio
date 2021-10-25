@@ -21568,6 +21568,8 @@ var Portfolio = function Portfolio() {
       authCode = _c[0],
       setAuthCode = _c[1];
 
+  var isLoading = store_1.projectsState.isLoading.hook()[0];
+
   var handleChange = function handleChange(event) {
     setSkillName(event.target.value);
   };
@@ -21667,7 +21669,12 @@ var Portfolio = function Portfolio() {
     }
   }))), isAuthorized === 1 && react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("p", null, "Authorized")))), react_1["default"].createElement("div", {
     className: "row m-0"
-  }, filteredProjects.map(function (project, index) {
+  }, isLoading && react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", {
+    className: "col-md-4 offset-md-4"
+  }, react_1["default"].createElement("img", {
+    src: "/images/loading.gif",
+    alt: ""
+  }))), !isLoading && filteredProjects.map(function (project, index) {
     return react_1["default"].createElement("div", {
       key: index,
       className: "col-md-4"
@@ -22269,6 +22276,7 @@ var state_1 = __webpack_require__(/*! ./state */ "./resources/js/components/stor
 var ProjectsState = function () {
   function ProjectsState() {
     this.isAuthorized = new state_1.State(0);
+    this.isLoading = new state_1.State(false);
     this.selectedProject = new state_1.State(null);
     this.projects = new state_1.State([]);
     this.skills = new state_1.State([]);
@@ -22286,6 +22294,7 @@ var ProjectsState = function () {
           case 0:
             _a.trys.push([0, 2,, 3]);
 
+            this.isLoading.next(true);
             return [4
             /*yield*/
             , api_1.api.get('verify', {
@@ -22302,6 +22311,7 @@ var ProjectsState = function () {
               this.isAuthorized.next(1);
             }
 
+            this.isLoading.next(false);
             Promise.resolve();
             return [3
             /*break*/
@@ -22331,6 +22341,7 @@ var ProjectsState = function () {
           case 0:
             _a.trys.push([0, 2,, 3]);
 
+            this.isLoading.next(true);
             return [4
             /*yield*/
             , api_1.api.get('get-all-projects', {
@@ -22345,6 +22356,7 @@ var ProjectsState = function () {
               return portfolioItem;
             });
             this.projects.next(portfolioItem);
+            this.isLoading.next(false);
             return [2
             /*return*/
             , Promise.resolve()];
@@ -22374,6 +22386,7 @@ var ProjectsState = function () {
           case 0:
             _a.trys.push([0, 4,, 5]);
 
+            this.isLoading.next(true);
             return [4
             /*yield*/
             , api_1.api.get('get-project', {
@@ -22414,6 +22427,7 @@ var ProjectsState = function () {
               return description;
             });
             this.descriptions.next(descriptions);
+            this.isLoading.next(false);
             return [2
             /*return*/
             , Promise.resolve()];
@@ -22441,6 +22455,7 @@ var ProjectsState = function () {
           case 0:
             _a.trys.push([0, 2,, 3]);
 
+            this.isLoading.next(true);
             return [4
             /*yield*/
             , api_1.api.get('get-all-skills')];
@@ -22451,6 +22466,7 @@ var ProjectsState = function () {
               return skill;
             });
             this.allSkills.next(skills);
+            this.isLoading.next(false);
             return [3
             /*break*/
             , 3];
