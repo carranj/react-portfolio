@@ -21674,35 +21674,33 @@ var Portfolio = function Portfolio() {
   }, react_1["default"].createElement("img", {
     src: "/images/loading.gif",
     alt: ""
-  }))), !isLoading && filteredProjects.map(function (project, index) {
+  }))), "filteredProjects.map((project, index) => (", react_1["default"].createElement("div", {
+    key: index,
+    className: "col-md-4"
+  }, react_1["default"].createElement("div", {
+    className: "portfolio-item"
+  }, react_1["default"].createElement("div", {
+    className: "img-placement"
+  }, react_1["default"].createElement("img", {
+    className: "img-fluid profile-photo",
+    src: "/images/projects/" + project.shortname + ".jpg",
+    alt: ""
+  })), react_1["default"].createElement("div", {
+    className: "portfolio-content"
+  }, react_1["default"].createElement("h2", null, react_1["default"].createElement(react_router_dom_1.Link, {
+    to: "/portfolio/" + project.shortname
+  }, project.name)), react_1["default"].createElement("div", {
+    className: "skillsSection"
+  }, react_1["default"].createElement("div", {
+    className: "skills d-flex flex-wrap"
+  }, project.skills.map(function (skill, index) {
     return react_1["default"].createElement("div", {
-      key: index,
-      className: "col-md-4"
-    }, react_1["default"].createElement("div", {
-      className: "portfolio-item"
-    }, react_1["default"].createElement("div", {
-      className: "img-placement"
-    }, react_1["default"].createElement("img", {
-      className: "img-fluid profile-photo",
-      src: "/images/projects/" + project.shortname + ".jpg",
-      alt: ""
-    })), react_1["default"].createElement("div", {
-      className: "portfolio-content"
-    }, react_1["default"].createElement("h2", null, react_1["default"].createElement(react_router_dom_1.Link, {
-      to: "/portfolio/" + project.shortname
-    }, project.name)), react_1["default"].createElement("div", {
-      className: "skillsSection"
-    }, react_1["default"].createElement("div", {
-      className: "skills d-flex flex-wrap"
-    }, project.skills.map(function (skill, index) {
-      return react_1["default"].createElement("div", {
-        className: "skill"
-      }, react_1["default"].createElement("p", {
-        className: "skill " + skill.classname,
-        key: index
-      }, skill.skillName));
-    }))))));
-  }))));
+      className: "skill"
+    }, react_1["default"].createElement("p", {
+      className: "skill " + skill.classname,
+      key: index
+    }, skill.skillName));
+  })))))), "))")));
 };
 
 exports.Portfolio = Portfolio;
