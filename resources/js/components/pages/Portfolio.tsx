@@ -152,7 +152,7 @@ export const Portfolio = () => {
            
                 
 
-                filteredProjects.map((project, index) => (
+                {filteredProjects.map((project, index) => (
                   <div key={index} className="col-md-4">
                     <div className="portfolio-item">
                       <div className="img-placement">
@@ -173,8 +173,9 @@ export const Portfolio = () => {
                   </div>
                 </div>
                   
-                ))
+                ))}
 
+             
           
           
 
