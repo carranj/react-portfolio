@@ -54,7 +54,7 @@ class ProjectsState {
             });
 
             const authResponse = response;
-            if (authResponse.status = 201){
+            if (authResponse.status === 201){
                 this.isAuthorized.next(1);
             }
             Promise.resolve();

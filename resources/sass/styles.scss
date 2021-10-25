@@ -249,8 +249,10 @@ header {
     
                 &.design {
                     background: #964b00;
-                    &:before {
-                        content: "\f1fc";
+                    &::before {
+                        font-family: "Font Awesome 5 Free";
+                        font-weight: 400;
+                        content: "\f5ad";
                     }
                 }
     

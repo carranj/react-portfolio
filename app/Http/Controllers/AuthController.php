@@ -27,7 +27,7 @@ class AuthController extends Controller
         } else{
             $id = $userAccess->userId;
             $user = User::where('id', $id)->first();
-
+            
             $token = $user->createToken("Portfolio Access Token")->plainTextToken;
             Auth::login($user);
             DB::table('user_access')

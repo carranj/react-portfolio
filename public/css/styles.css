@@ -243,8 +243,10 @@ header ul li a:hover {
 .skillsSection .skills p.skill.design {
   background: #964b00;
 }
-.skillsSection .skills p.skill.design:before {
-  content: "\f1fc";
+.skillsSection .skills p.skill.design::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  content: "\f5ad";
 }
 .skillsSection .skills p.skill.gsap {
   background: #61ac27;
