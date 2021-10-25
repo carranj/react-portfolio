@@ -260,6 +260,12 @@ header ul li a:hover {
 .skillsSection .skills p.skill.react:before {
   content: "\f41b";
 }
+.skillsSection .skills p.skill.sql {
+  background: #f29221;
+}
+.skillsSection .skills p.skill.sql:before {
+  content: "\f1c0";
+}
 .skillsSection .skills p.skill.ajax {
   background: #97ba31;
 }
