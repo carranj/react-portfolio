@@ -262,6 +262,12 @@ header {
                         content: "\f011";
                     }
                 }
+                &.react{
+                    background:#61dafb;
+                    &:before {
+                        content:"\f41b";
+                    }
+                }
     
                 &.ajax {
                     background: #97ba31;
