@@ -254,6 +254,12 @@ header ul li a:hover {
 .skillsSection .skills p.skill.gsap:before {
   content: "\f011";
 }
+.skillsSection .skills p.skill.react {
+  background: #61dafb;
+}
+.skillsSection .skills p.skill.react:before {
+  content: "\f41b";
+}
 .skillsSection .skills p.skill.ajax {
   background: #97ba31;
 }
