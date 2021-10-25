@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { projectsState } from "../store";
-import {Button} from "@material-ui/core";
 
 export const Project = () => {
     const [selectedProject] = projectsState.selectedProject.hook();
@@ -50,7 +49,7 @@ export const Project = () => {
                     <img className="img-fluid profile-photo" src={"/images/projects/" + selectedProject?.shortname + ".jpg"} alt=""/>
                     {selectedProject?.url && (
                         <div className='mt-2'>
-                            <Button variant="outlined" target="_blank" href={selectedProject.url}>View Site</Button>
+                            <a className="btn btn-primary" target="_blank" href={selectedProject.url}>View Site</a>
                         </div>
                                 
                             )

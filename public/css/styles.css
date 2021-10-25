@@ -238,14 +238,16 @@ header ul li a:hover {
   background: #10aea2;
 }
 .skillsSection .skills p.skill.e-commerce:before {
+  font-family: "Font Awesome 5 Free";
   content: "\f155";
+  font-weight: 700;
 }
 .skillsSection .skills p.skill.design {
   background: #964b00;
 }
 .skillsSection .skills p.skill.design::before {
   font-family: "Font Awesome 5 Free";
-  font-weight: 400;
+  font-weight: 700;
   content: "\f5ad";
 }
 .skillsSection .skills p.skill.gsap {
@@ -264,13 +266,17 @@ header ul li a:hover {
   background: #f29221;
 }
 .skillsSection .skills p.skill.sql:before {
+  font-family: "Font Awesome 5 Free";
   content: "\f1c0";
+  font-weight: 700;
 }
 .skillsSection .skills p.skill.ajax {
   background: #97ba31;
 }
 .skillsSection .skills p.skill.ajax:before {
+  font-family: "Font Awesome 5 Free";
   content: "\f0ec";
+  font-weight: 700;
   transform: rotate(90deg);
 }
 
@@ -354,4 +360,7 @@ header ul li a:hover {
   background-color: #e5dbda;
   border-color: #e5dbda;
   color: #322f2a;
+}
+.btn.btn-primary:hover {
+  background-color: #c5afad;
 }

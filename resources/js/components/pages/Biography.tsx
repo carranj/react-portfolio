@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { Link } from "react-router-dom";
 
 export const Biography = () => {
 
@@ -14,7 +15,7 @@ export const Biography = () => {
                             <a className="socialIcons" href="https://www.facebook.com/carranj" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-square"></i></a>
                             <a className="socialIcons" href="https://github.com/carranj" target="_blank" rel="noopener noreferrer"><i className="fab fa-github-square"></i></a>
                           
-                          <p>I'm a web developer and specialize in web development. I primarily build Angular applications and custom WordPress websites. I serve as a Full Stack Developer in Houston. Click here to see samples of my featured work or continue reading below to learn more of my interactive journey.</p>
+                          <p>I'm a web developer and specialize in web development. I primarily build Angular applications and custom WordPress websites. I serve as a Full Stack Developer in Houston. <Link to={'/portfolio'}>Click here</Link> to see samples of my featured work or continue reading below to learn more of my interactive journey.</p>
                       </div>
                   </div>
                   <div className="col-md-6 profilephoto">
@@ -35,6 +36,17 @@ export const Biography = () => {
                           </ul>
                       </div>
                       <div className="col-md-4">
+                          <h2>Development</h2>
+                          <ul>
+                              <li>Angular</li>
+                              <li>React</li>
+                              <li>Laravel</li>
+                              <li>WordPress</li>
+                              <li>JavaScript</li>
+                              <li>PHP</li>
+                          </ul>
+                      </div>                                                
+                      <div className="col-md-4">
                           <h2>Design</h2>
                           <ul>
                               <li>Photoshop</li>
@@ -45,18 +57,6 @@ export const Biography = () => {
                               <li>Print Production</li>
                           </ul>
                       </div>
-                      <div className="col-md-4">
-                          <h2>Development</h2>
-                          <ul>
-                              <li>Angular</li>
-                              <li>React</li>
-                              <li>WordPress</li>
-                              <li>JavaScript</li>
-                              <li>PHP</li>
-                              <li>Linux</li>
-                          </ul>
-                      </div>                                                
-                  
               </div>
           </div>
       );

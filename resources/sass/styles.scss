@@ -243,7 +243,9 @@ header {
                 &.e-commerce {
                     background: #10aea2;
                     &:before {
+                        font-family: "Font Awesome 5 Free";
                         content: "\f155";
+                        font-weight: 700;
                     }
                 }
 
@@ -251,7 +253,7 @@ header {
                     background: #964b00;
                     &::before {
                         font-family: "Font Awesome 5 Free";
-                        font-weight: 400;
+                        font-weight: 700;
                         content: "\f5ad";
                     }
                 }
@@ -271,14 +273,18 @@ header {
                 &.sql {
                     background: #f29221;
                     &:before {
+                        font-family: "Font Awesome 5 Free";
                         content: "\f1c0";
+                        font-weight: 700;
                     }
                 }
 
                 &.ajax {
                     background: #97ba31;
                     &:before {
+                        font-family: "Font Awesome 5 Free";
                         content: "\f0ec";
+                        font-weight: 700;
                         -webkit-transform: rotate(90deg);
                         -moz-transform: rotate(90deg);
                         -ms-transform: rotate(90deg);
@@ -377,5 +383,8 @@ header {
         background-color: #e5dbda;
         border-color: #e5dbda;
         color: #322f2a;
+        &:hover {
+            background-color: darken(#e5dbda, 15%);
+        }
     }
 }
