@@ -21667,14 +21667,14 @@ var Portfolio = function Portfolio() {
         onClick: handleAuth
       }, "Authorize")
     }
-  }))), isAuthorized === 1 && react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("p", null, "Authorized")))), react_1["default"].createElement("div", {
+  }))), isAuthorized === 1 && react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("p", null, "Authorized")))), isLoading && react_1["default"].createElement("div", {
     className: "row"
-  }, isLoading && react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", {
+  }, react_1["default"].createElement("div", {
     className: "col-md-4 offset-md-4"
   }, react_1["default"].createElement("img", {
     src: "/images/loading.gif",
     alt: ""
-  })))), react_1["default"].createElement("div", {
+  }))), react_1["default"].createElement("div", {
     className: "row m-0"
   }, filteredProjects.map(function (project, index) {
     return react_1["default"].createElement("div", {
@@ -21770,6 +21770,7 @@ var Project = function Project() {
   var skills = store_1.projectsState.skills.hook()[0];
   var descriptions = store_1.projectsState.descriptions.hook()[0];
   var shortname = (0, react_router_dom_1.useParams)().shortname;
+  var isLoading = store_1.projectsState.isLoading.hook()[0];
   (0, react_1.useEffect)(function () {
     if (shortname !== null) {
       store_1.projectsState.fetchProject(shortname);
@@ -21783,7 +21784,14 @@ var Project = function Project() {
     className: "col-md-8"
   }, react_1["default"].createElement("div", {
     className: "name"
-  }, react_1["default"].createElement("h1", null, selectedProject === null || selectedProject === void 0 ? void 0 : selectedProject.name), react_1["default"].createElement("div", {
+  }, react_1["default"].createElement("h1", null, selectedProject === null || selectedProject === void 0 ? void 0 : selectedProject.name), isLoading && react_1["default"].createElement("div", {
+    className: "row"
+  }, react_1["default"].createElement("div", {
+    className: "col-md-4 offset-md-4"
+  }, react_1["default"].createElement("img", {
+    src: "/images/loading.gif",
+    alt: ""
+  }))), !isLoading && react_1["default"].createElement("div", {
     className: "skillsSection"
   }, react_1["default"].createElement("div", {
     className: "row"

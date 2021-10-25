@@ -137,20 +137,17 @@ export const Portfolio = () => {
             
             </div>
           </div>
-          <div className="row">
+          
           {
               isLoading &&(
-                <>
+                <div className="row">
 
                   <div className="col-md-4 offset-md-4">
                     <img src="/images/loading.gif" alt="" />
                   </div>
-
-                
-                </>
+                </div>
               )
             }
-          </div>
           <div className="row m-0">          
 
                 {filteredProjects.map((project, index) => (

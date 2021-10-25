@@ -7,6 +7,7 @@ export const Project = () => {
     const [skills] = projectsState.skills.hook();
     const [descriptions] = projectsState.descriptions.hook();
     const {shortname} = useParams<{shortname:string}>();
+    const [isLoading] = projectsState.isLoading.hook();
 
     useEffect( ()=>{
         if(shortname !== null){
@@ -20,29 +21,43 @@ export const Project = () => {
                 <div className="col-md-8">
                     <div className="name">
                         <h1>{selectedProject?.name}</h1>
-                        <div className="skillsSection">
-                            <div className="row">
-                                <div className="col-md-12">
-                                    <h2 className="d-inline float-left mr-3">Skills: </h2>
-                                    <div className="skills d-flex flex-wrap">
-                                        <div className="skill">
-                                            {skills.map((skill, index) => (
-                                                <p className={"skill " + skill.classname} key={index}>{skill.skillName}</p>
-                                            ))}
+                        {
+                            isLoading &&(
+                                <div className="row">
+
+                                <div className="col-md-4 offset-md-4">
+                                    <img src="/images/loading.gif" alt="" />
+                                </div>
+                                </div>
+                            )
+                        }
+                        {
+                            !isLoading &&(
+                                <div className="skillsSection">
+                                    <div className="row">
+                                        <div className="col-md-12">
+                                            <h2 className="d-inline float-left mr-3">Skills: </h2>
+                                            <div className="skills d-flex flex-wrap">
+                                                <div className="skill">
+                                                    {skills.map((skill, index) => (
+                                                        <p className={"skill " + skill.classname} key={index}>{skill.skillName}</p>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="col-md-12 mt-2">
+                                                {descriptions.map((description, index) => (
+                                                    <div key={index}>
+                                                            <h3>{description.title}</h3>
+                                                        <p>{description.description}</p>
+                                                    </div>
+                                                ))}
+                                            
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-md-12 mt-2">
-                                        {descriptions.map((description, index) => (
-                                            <div key={index}>
-                                                    <h3>{description.title}</h3>
-                                                <p>{description.description}</p>
-                                            </div>
-                                        ))}
-                                    
-                                </div>
-                            </div>
-                        </div>
+                            )
+                        }
                     </div>
                 </div>
                 <div className="col-md-4 profilephoto text-center">
