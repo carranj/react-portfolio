@@ -149,7 +149,7 @@ export const Portfolio = () => {
                 </>
               )
             }
-            {!isLoading && (
+           
                 
 
                 filteredProjects.map((project, index) => (
@@ -175,8 +175,6 @@ export const Portfolio = () => {
                   
                 ))
 
-                )
-              }
           
           
 
