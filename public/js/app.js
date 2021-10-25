@@ -21668,13 +21668,15 @@ var Portfolio = function Portfolio() {
       }, "Authorize")
     }
   }))), isAuthorized === 1 && react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("p", null, "Authorized")))), react_1["default"].createElement("div", {
-    className: "row m-0"
+    className: "row"
   }, isLoading && react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", {
     className: "col-md-4 offset-md-4"
   }, react_1["default"].createElement("img", {
     src: "/images/loading.gif",
     alt: ""
-  }))), filteredProjects.map(function (project, index) {
+  })))), react_1["default"].createElement("div", {
+    className: "row m-0"
+  }, filteredProjects.map(function (project, index) {
     return react_1["default"].createElement("div", {
       key: index,
       className: "col-md-4"
