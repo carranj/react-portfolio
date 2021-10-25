@@ -5,9 +5,9 @@ export const Biography = () => {
 
     return (  
         <div className="container-fluid biography p-0">
-            <div className="row intro m-5">
+            <div className="row intro m-0">
                 <div className="col-md-6">
-                    <div className="name">
+                    <div className="name mt-5">
                         <h1>Jose Carranco</h1>
                         <a href="mailto:carranco.jose.r@gmail.com">carranco.jose.r@gmail.com</a>
                         <br/>
