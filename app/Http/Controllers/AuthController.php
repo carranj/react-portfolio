@@ -27,24 +27,24 @@ class AuthController extends Controller
         } else{
             $id = $userAccess->userId;
             $user = User::where('id', $id)->first();
-            
-            $token = $user->createToken("Portfolio Access Token")->plainTextToken;
-            Auth::login($user);
-            DB::table('user_access')
-            ->where('userId', $id)
-            ->update([
-                'numVisited' => $userAccess->numVisited == null ? 1 : $userAccess->numVisited++,
-                'lastVisited' => now()
-            ]);
+                
+                $token = $user->createToken("Portfolio Access Token")->plainTextToken;
+                Auth::login($user);
+                DB::table('user_access')
+                ->where('userId', $id)
+                ->update([
+                    'numVisited' => $userAccess->numVisited == null ? 1 : $userAccess->numVisited++,
+                    'lastVisited' => now()
+                ]);
 
-            DB::table('user_login_log')
-            ->insert([
-                'userId'=> $id,
-                'time' => now()->timezone('America/Chicago')
-            ]);
+                DB::table('user_login_log')
+                ->insert([
+                    'userId'=> $id,
+                    'time' => now()->timezone('America/Chicago')
+                ]);
 
-            $response = ['token' => $token];
-            return response($response, 201);
+                $response = ['token' => $token];
+                return response($response, 201);
         }
         
 

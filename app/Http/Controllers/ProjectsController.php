@@ -35,7 +35,7 @@ class ProjectsController extends Controller
                 ->get();
         });
 
-        return json_decode($projects);
+        return json_encode($projects);
     }
 
     public function getAllSkills()
@@ -49,7 +49,7 @@ class ProjectsController extends Controller
             ->orderBy('skillName')
             ->get();
 
-        return json_decode($skills);
+        return json_encode($skills);
     }
 
     public function getProject(Request $request)
