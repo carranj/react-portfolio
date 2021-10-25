@@ -5,7 +5,7 @@ export const Biography = () => {
 
     return (  
         <div className="container-fluid biography p-0">
-            <div className="row intro m-0">
+            <div className="row intro m-5">
                 <div className="col-md-6">
                     <div className="name">
                         <h1>Jose Carranco</h1>

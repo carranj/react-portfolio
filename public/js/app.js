@@ -20881,7 +20881,7 @@ var Biography = function Biography() {
   return react_1["default"].createElement("div", {
     className: "container-fluid biography p-0"
   }, react_1["default"].createElement("div", {
-    className: "row intro m-0"
+    className: "row intro m-5"
   }, react_1["default"].createElement("div", {
     className: "col-md-6"
   }, react_1["default"].createElement("div", {
