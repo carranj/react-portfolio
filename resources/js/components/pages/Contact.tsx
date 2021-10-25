@@ -48,7 +48,7 @@ export const Contact = () => {
                                     <select className="form-select" value={reason} onChange={(e) =>
                                                     setReason(e.target.value)
                                                 }>
-                                        <option value="general">General Inquiry</option>
+                                        <option value="general">General inquiry</option>
                                         <option value="website">Need a website</option>
                                         <option value="code">Request an authorization code</option>
                                         <option value="other">Other</option>

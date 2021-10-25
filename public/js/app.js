@@ -21200,7 +21200,7 @@ var Contact = function Contact() {
     }
   }, react_1["default"].createElement("option", {
     value: "general"
-  }, "General Inquiry"), react_1["default"].createElement("option", {
+  }, "General inquiry"), react_1["default"].createElement("option", {
     value: "website"
   }, "Need a website"), react_1["default"].createElement("option", {
     value: "code"
