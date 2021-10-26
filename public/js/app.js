@@ -20909,7 +20909,7 @@ var Biography = function Biography() {
     rel: "noopener noreferrer"
   }, react_1["default"].createElement("i", {
     className: "fab fa-github-square"
-  })), react_1["default"].createElement("p", null, "I am a Full Stack Web Developer and specialize in building Angular applications and custom WordPress websites. ", react_1["default"].createElement(react_router_dom_1.Link, {
+  })), react_1["default"].createElement("p", null, "I am a Full Stack Web Developer and specialize in building web applications and custom WordPress websites. ", react_1["default"].createElement(react_router_dom_1.Link, {
     to: '/portfolio'
   }, "Click here"), " to see my featured work and learn more of my interactive journey."))), react_1["default"].createElement("div", {
     className: "col-md-6 profilephoto"

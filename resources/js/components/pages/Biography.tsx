@@ -15,7 +15,7 @@ export const Biography = () => {
                             <a className="socialIcons" href="https://www.facebook.com/carranj" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-square"></i></a>
                             <a className="socialIcons" href="https://github.com/carranj" target="_blank" rel="noopener noreferrer"><i className="fab fa-github-square"></i></a>
                           
-                          <p>I am a Full Stack Web Developer and specialize in building Angular applications and custom WordPress websites. <Link to={'/portfolio'}>Click here</Link> to see my featured work and learn more of my interactive journey.</p>
+                          <p>I am a Full Stack Web Developer and specialize in building web applications and custom WordPress websites. <Link to={'/portfolio'}>Click here</Link> to see my featured work and learn more of my interactive journey.</p>
                       </div>
                   </div>
                   <div className="col-md-6 profilephoto">
