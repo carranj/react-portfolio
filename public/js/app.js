@@ -21797,8 +21797,8 @@ var Project = function Project() {
     className: "row"
   }, react_1["default"].createElement("div", {
     className: "col-md-12"
-  }, react_1["default"].createElement("h2", {
-    className: "d-inline float-left mr-3"
+  }, react_1["default"].createElement("h4", {
+    className: "d-inline float-left mr-4"
   }, "Skills: "), react_1["default"].createElement("div", {
     className: "skills d-flex flex-wrap"
   }, react_1["default"].createElement("div", {

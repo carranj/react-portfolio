@@ -36,7 +36,7 @@ export const Project = () => {
                                 <div className="skillsSection">
                                     <div className="row">
                                         <div className="col-md-12">
-                                            <h2 className="d-inline float-left mr-3">Skills: </h2>
+                                            <h4 className="d-inline float-left mr-4">Skills: </h4>
                                             <div className="skills d-flex flex-wrap">
                                                 <div className="skill">
                                                     {skills.map((skill, index) => (
