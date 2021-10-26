@@ -21315,7 +21315,7 @@ var Home = function Home() {
     className: "col-md-12"
   }, react_1["default"].createElement("div", {
     className: "intro"
-  }, react_1["default"].createElement("h1", null, "Jose Carranco"), react_1["default"].createElement("h2", null, "Strategy, Development, Design")))));
+  }, react_1["default"].createElement("h1", null, "Jose Carranco"), react_1["default"].createElement("h2", null, "Strategy. Development. Design")))));
 };
 
 exports.Home = Home;

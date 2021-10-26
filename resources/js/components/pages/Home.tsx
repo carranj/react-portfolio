@@ -8,7 +8,7 @@ export const Home = () => {
               <div className="col-md-12">
                     <div className="intro">
                         <h1>Jose Carranco</h1>
-                        <h2>Strategy, Development, Design</h2>
+                        <h2>Strategy. Development. Design</h2>
                     </div>
               </div>
           </div>
