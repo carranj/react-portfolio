@@ -40,11 +40,11 @@ export const Contact = () => {
                         )}
                         {!sent && (
                             <>
-                            <h1>Reach out to me!</h1>
+                            <h1>Let's start a conversation!</h1>
                             <hr />
                                 <div className="mb-3 form" >
                                     <label>
-                                    Reason for reaching out:
+                                    Service Interest:
                                     <select className="form-select" value={reason} onChange={(e) =>
                                                     setReason(e.target.value)
                                                 }>
@@ -67,7 +67,6 @@ export const Contact = () => {
                                                 type="text"
                                                 className="form-control"
                                                 id="Fname"
-                                                placeholder="Johnny B."
                                                 value={fName}
                                                 onChange={(e) => setFName(e.target.value)}
                                             ></input>
@@ -78,7 +77,6 @@ export const Contact = () => {
                                             <input type="text"
                                                 className="form-control"
                                                 id="Fname"
-                                                placeholder="Goode"
                                                 value={lName}
                                                 onChange={(e) => setLName(e.target.value)}
                                             ></input>
@@ -94,7 +92,6 @@ export const Contact = () => {
                                                 type="email"
                                                 className="form-control"
                                                 id="email"
-                                                placeholder="name@example.com"
                                                 value={email}
                                                 onChange={(e) => setEmail(e.target.value)}
                                             ></input>
@@ -106,7 +103,6 @@ export const Contact = () => {
                                                 type="phone"
                                                 className="form-control"
                                                 id="phone"
-                                                placeholder="(123) 456-7890"
                                                 value={phone}
                                                 onChange={(e) => setPhone(e.target.value)}
                                             ></input>

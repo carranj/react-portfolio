@@ -21190,9 +21190,9 @@ var Contact = function Contact() {
     className: "intro"
   }, sent && react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("h2", {
     className: "text-center mt-5"
-  }, " Thank you for your reaching out. I will be in touch shortly!")), !sent && react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("h1", null, "Reach out to me!"), react_1["default"].createElement("hr", null), react_1["default"].createElement("div", {
+  }, " Thank you for your reaching out. I will be in touch shortly!")), !sent && react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("h1", null, "Let's start a conversation!"), react_1["default"].createElement("hr", null), react_1["default"].createElement("div", {
     className: "mb-3 form"
-  }, react_1["default"].createElement("label", null, "Reason for reaching out:", react_1["default"].createElement("select", {
+  }, react_1["default"].createElement("label", null, "Service Interest:", react_1["default"].createElement("select", {
     className: "form-select",
     value: reason,
     onChange: function onChange(e) {
@@ -21218,7 +21218,6 @@ var Contact = function Contact() {
     type: "text",
     className: "form-control",
     id: "Fname",
-    placeholder: "Johnny B.",
     value: fName,
     onChange: function onChange(e) {
       return setFName(e.target.value);
@@ -21231,7 +21230,6 @@ var Contact = function Contact() {
     type: "text",
     className: "form-control",
     id: "Fname",
-    placeholder: "Goode",
     value: lName,
     onChange: function onChange(e) {
       return setLName(e.target.value);
@@ -21248,7 +21246,6 @@ var Contact = function Contact() {
     type: "email",
     className: "form-control",
     id: "email",
-    placeholder: "name@example.com",
     value: email,
     onChange: function onChange(e) {
       return setEmail(e.target.value);
@@ -21261,7 +21258,6 @@ var Contact = function Contact() {
     type: "phone",
     className: "form-control",
     id: "phone",
-    placeholder: "(123) 456-7890",
     value: phone,
     onChange: function onChange(e) {
       return setPhone(e.target.value);
