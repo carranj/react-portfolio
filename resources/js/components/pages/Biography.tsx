@@ -15,7 +15,7 @@ export const Biography = () => {
                             <a className="socialIcons" href="https://www.facebook.com/carranj" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-square"></i></a>
                             <a className="socialIcons" href="https://github.com/carranj" target="_blank" rel="noopener noreferrer"><i className="fab fa-github-square"></i></a>
                           
-                          <p>I am a Full Stack Web Developer and specialize in building web applications and custom WordPress websites. <Link to={'/portfolio'}>Click here</Link> to see my featured work and learn more of my interactive journey.</p>
+                          <p>I am a Full Stack Web Developer who specializes in creating web applications and building WordPress websites. <Link to={'/portfolio'}>Click here</Link> to view my featured work and learn more of my interactive journey.</p>
                       </div>
                   </div>
                   <div className="col-md-6 profilephoto">
@@ -30,9 +30,9 @@ export const Biography = () => {
                               <li>Inbound Marketing</li>
                               <li>Whitepaper</li>
                               <li>Social Media Planning</li>
+                              <li>Branding</li>
                               <li>Project Management</li>
                               <li>Google Analytics</li>
-                              <li>Branding</li>
                           </ul>
                       </div>
                       <div className="col-md-4">
@@ -40,8 +40,8 @@ export const Biography = () => {
                           <ul>
                               <li>Angular</li>
                               <li>React</li>
-                              <li>Laravel</li>
                               <li>WordPress</li>
+                              <li>Laravel</li>
                               <li>JavaScript</li>
                               <li>PHP</li>
                           </ul>
@@ -50,9 +50,9 @@ export const Biography = () => {
                           <h2>Design</h2>
                           <ul>
                               <li>Photoshop</li>
+                              <li>SVG Animation</li>
                               <li>Illustrator</li>
                               <li>XD</li>
-                              <li>SVG Animation</li>
                               <li>Website Design</li>
                               <li>Print Production</li>
                           </ul>

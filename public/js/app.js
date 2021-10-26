@@ -20909,9 +20909,9 @@ var Biography = function Biography() {
     rel: "noopener noreferrer"
   }, react_1["default"].createElement("i", {
     className: "fab fa-github-square"
-  })), react_1["default"].createElement("p", null, "I am a Full Stack Web Developer and specialize in building web applications and custom WordPress websites. ", react_1["default"].createElement(react_router_dom_1.Link, {
+  })), react_1["default"].createElement("p", null, "I am a Full Stack Web Developer who specializes in creating web applications and building WordPress websites. ", react_1["default"].createElement(react_router_dom_1.Link, {
     to: '/portfolio'
-  }, "Click here"), " to see my featured work and learn more of my interactive journey."))), react_1["default"].createElement("div", {
+  }, "Click here"), " to view my featured work and learn more of my interactive journey."))), react_1["default"].createElement("div", {
     className: "col-md-6 profilephoto"
   }, react_1["default"].createElement("img", {
     className: "img-fluid profile-photo",
@@ -20921,11 +20921,11 @@ var Biography = function Biography() {
     className: "row sectionTwo m-0"
   }, react_1["default"].createElement("div", {
     className: "col-md-4"
-  }, react_1["default"].createElement("h2", null, "Strategy"), react_1["default"].createElement("ul", null, react_1["default"].createElement("li", null, "Inbound Marketing"), react_1["default"].createElement("li", null, "Whitepaper"), react_1["default"].createElement("li", null, "Social Media Planning"), react_1["default"].createElement("li", null, "Project Management"), react_1["default"].createElement("li", null, "Google Analytics"), react_1["default"].createElement("li", null, "Branding"))), react_1["default"].createElement("div", {
+  }, react_1["default"].createElement("h2", null, "Strategy"), react_1["default"].createElement("ul", null, react_1["default"].createElement("li", null, "Inbound Marketing"), react_1["default"].createElement("li", null, "Whitepaper"), react_1["default"].createElement("li", null, "Social Media Planning"), react_1["default"].createElement("li", null, "Branding"), react_1["default"].createElement("li", null, "Project Management"), react_1["default"].createElement("li", null, "Google Analytics"))), react_1["default"].createElement("div", {
     className: "col-md-4"
-  }, react_1["default"].createElement("h2", null, "Development"), react_1["default"].createElement("ul", null, react_1["default"].createElement("li", null, "Angular"), react_1["default"].createElement("li", null, "React"), react_1["default"].createElement("li", null, "Laravel"), react_1["default"].createElement("li", null, "WordPress"), react_1["default"].createElement("li", null, "JavaScript"), react_1["default"].createElement("li", null, "PHP"))), react_1["default"].createElement("div", {
+  }, react_1["default"].createElement("h2", null, "Development"), react_1["default"].createElement("ul", null, react_1["default"].createElement("li", null, "Angular"), react_1["default"].createElement("li", null, "React"), react_1["default"].createElement("li", null, "WordPress"), react_1["default"].createElement("li", null, "Laravel"), react_1["default"].createElement("li", null, "JavaScript"), react_1["default"].createElement("li", null, "PHP"))), react_1["default"].createElement("div", {
     className: "col-md-4"
-  }, react_1["default"].createElement("h2", null, "Design"), react_1["default"].createElement("ul", null, react_1["default"].createElement("li", null, "Photoshop"), react_1["default"].createElement("li", null, "Illustrator"), react_1["default"].createElement("li", null, "XD"), react_1["default"].createElement("li", null, "SVG Animation"), react_1["default"].createElement("li", null, "Website Design"), react_1["default"].createElement("li", null, "Print Production")))));
+  }, react_1["default"].createElement("h2", null, "Design"), react_1["default"].createElement("ul", null, react_1["default"].createElement("li", null, "Photoshop"), react_1["default"].createElement("li", null, "SVG Animation"), react_1["default"].createElement("li", null, "Illustrator"), react_1["default"].createElement("li", null, "XD"), react_1["default"].createElement("li", null, "Website Design"), react_1["default"].createElement("li", null, "Print Production")))));
 };
 
 exports.Biography = Biography;
