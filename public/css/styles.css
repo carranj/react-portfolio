@@ -143,15 +143,15 @@ header ul li a:hover {
   padding: 30px;
 }
 .biography .sectionTwo h2 {
-  font-size: 32px;
-  font-weight: 300;
+  font-size: 36px;
+  font-weight: 600;
   text-transform: uppercase;
 }
 .biography .sectionTwo ul {
   list-style-type: none;
   font-weight: 300;
   padding: 0;
-  font-size: 22px;
+  font-size: 24px;
 }
 
 .skillsSection .skills p.skill {
