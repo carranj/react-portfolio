@@ -22,7 +22,7 @@ Route::prefix('api')->group(function () {
     Route::get('/get-project', [ProjectsController::class, 'getProject']);
     Route::get('/get-project-skills', [ProjectsController::class, 'getProjectSkills']);
     Route::get('/get-project-description', [ProjectsController::class, 'getProjectDescriptions']);
-    Route::post('/contact-submit', [ContactController::class, 'contactSubmit']);
+    // Route::post('/contact-submit', [ContactController::class, 'contactSubmit']);
     Route::get('/verify', [AuthController::class, 'verify']);
 });
 

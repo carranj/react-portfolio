@@ -67,7 +67,6 @@ export const Portfolio = () => {
             <div className="col-md-5"></div>
           </div>
         </div>
-
         <div className="portfoliolists">
           <div className="row mb-3 categoryFilters">
             
@@ -103,6 +102,7 @@ export const Portfolio = () => {
               </FormControl>
             </div>
             
+
           </div>
           
           {
