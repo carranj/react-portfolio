@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import {Link } from "react-router-dom";
 import { projectsState } from "../store";
 
-import Button from '@mui/material/Button';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import TextField from '@mui/material/TextField';
+
 
 
 const ITEM_HEIGHT = 36;
@@ -121,7 +120,9 @@ export const Portfolio = () => {
                   <div key={index} className="col-md-4">
                     <div className="portfolio-item">
                       <div className="img-placement">
+                      <Link to={"/portfolio/" + project.shortname } >
                         <img className="img-fluid profile-photo" src={"/images/projects/" + project.shortname + ".jpg"} alt=""/>
+                      </Link>
                       </div>
                       <div className="portfolio-content"> 
                     <h2><Link to={"/portfolio/" + project.shortname } >{project.name}</Link></h2>
