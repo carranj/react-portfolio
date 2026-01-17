@@ -14,13 +14,10 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <meta name="description" content="Jose Carranco Portfolio" />
-    <link rel="stylesheet" href="/css/styles.css">
     <title>Jose Carranco</title>
+    @vite(['resources/css/app.css', 'resources/js/index.tsx'])
   </head>
-
-<body>
-     <div id="app"></div>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"></script>
-     <script src="/js/app.js"></script>
-</body>
+  <body>
+    <div id="root"></div>
+  </body>
 </html>

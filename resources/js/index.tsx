@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import {render} from "react-dom";
-import { BrowserRouter as Router, Link, Switch, Route} from "react-router-dom";
+import {createRoot} from "react-dom/client";
+import { BrowserRouter as Router, Link, Routes, Route} from "react-router-dom";
 import {Home} from "./components/pages/Home";
 import {Biography} from "./components/pages/Biography";
 import {Portfolio} from "./components/pages/Portfolio";
@@ -13,16 +13,17 @@ const App = () => {
         <>
             <Router>
                 <Navbar/>
-                <Switch>
-                    <Route exact path="/" component={Home} />
-                    <Route exact path="/biography" component={Biography}/>
-                    <Route exact path="/portfolio" component={Portfolio} />
-                    <Route exact path={"/portfolio/:shortname"} component={Project} />
-                    <Route exact path="/contact" component={Contact} />
-                </Switch>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/biography" element={<Biography />}/>
+                    <Route path="/portfolio" element={<Portfolio />} />
+                    <Route path="/portfolio/:shortname" element={<Project />} />
+                    <Route path="/contact" element={<Contact />} />
+                </Routes>
             </Router>
         </>
     )
 };
 
-render(<App />, document.getElementById('app'));
+const root = createRoot(document.getElementById('root')!);
+root.render(<App />);
