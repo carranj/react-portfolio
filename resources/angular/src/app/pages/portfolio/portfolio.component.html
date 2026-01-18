@@ -43,9 +43,7 @@
             </h3>
             <div class="skillsSection">
               <div class="skills">
-                <div *ngFor="let skill of project.skills" class="skill">
-                  <p [class]="'skill ' + skill.classname">{{ skill.skillName }}</p>
-                </div>
+                <p *ngFor="let skill of project.skills" [class]="'skill ' + skill.classname">{{ skill.skillName }}</p>
               </div>
             </div>
           </div>
