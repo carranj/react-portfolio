@@ -15,7 +15,8 @@ export class ProjectService {
   constructor(private http: HttpClient) {}
 
   getAllProjects(): Observable<Project[]> {
-    return this.http.get<Project[]>(`${this.apiUrl}/get-all-projects`).pipe(
+    const params = { authorized: '1' };
+    return this.http.get<Project[]>(`${this.apiUrl}/get-all-projects`, { params }).pipe(
       map((response: Project[]) => {
         return response;
       }),
