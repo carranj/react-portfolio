@@ -1,23 +1,52 @@
 @import url("https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap");
 @import "styles/variables";
 
-* {
-    box-sizing: border-box;
-}
-
-html,
 body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100vh;
     font-family: "Muli", sans-serif;
     background: $color-bg;
     color: $color-text;
+}
+
+// Override Clarity's :not([cds-text]) typography resets with higher specificity
+body h1, body h2, body h3, body h4, body h5, body h6,
+body p, body span, body div, body a, body li {
+    font-family: "Muli", sans-serif;
 }
 
 app-root {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+
+// Clarity theme overrides
+.card {
+    background: $color-surface;
+    border-color: $color-border;
+    color: $color-text;
+}
+
+.clr-select,
+.clr-input,
+.clr-textarea {
+    background-color: $color-surface;
+    color: $color-text;
+    border-color: $color-border;
+    
+    &:focus {
+        border-color: $color-link;
+        box-shadow: 0 0 0 3px $color-focus;
+    }
+}
+
+.header {
+    background-color: transparent;
+}
+
+a {
+    color: $color-link;
+    
+    &:hover {
+        color: $color-link-hover;
+    }
 }

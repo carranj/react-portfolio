@@ -1,46 +1,48 @@
-<div class="container-fluid portfolio p-0">
+<div class="portfolio">
   <div class="portfolio-landing-intro">
-    <div class="row m-0">
-      <div class="col-md-6 offset-md-1">
+    <div class="clr-row">
+      <div class="clr-col-md-6 clr-offset-md-1">
         <h1>Portfolio</h1>
         <p>Some of my featured work is listed below. These projects include custom WordPress sites, Angular applications, advanced JavaScript projects, and custom branding projects.</p>
       </div>
-      <div class="col-md-5"></div>
     </div>
   </div>
+  
   <div class="portfoliolists">
-    <div class="row mb-3 categoryFilters">
-      <div class="col-md-4">
+    <div class="clr-row categoryFilters">
+      <div class="clr-col-md-4">
         <label for="skill-filter">Filter by Skill:</label>
-        <select id="skill-filter" class="form-select" [(ngModel)]="selectedSkill" (change)="filterProjects()">
-          <option value="">All Skills</option>
-          <option *ngFor="let skill of allSkills" [value]="skill.skillName">
-            {{ skill.skillName }}
-          </option>
-        </select>
+        <div class="clr-select-wrapper">
+          <select id="skill-filter" class="clr-select" [(ngModel)]="selectedSkill" (change)="filterProjects()">
+            <option value="">All Skills</option>
+            <option *ngFor="let skill of allSkills" [value]="skill.skillName">
+              {{ skill.skillName }}
+            </option>
+          </select>
+        </div>
       </div>
     </div>
 
-    <div *ngIf="isLoading" class="row">
-      <div class="col-md-4 offset-md-4">
+    <div *ngIf="isLoading" class="clr-row">
+      <div class="clr-col-md-4 clr-offset-md-4">
         <img src="/assets/images/loading.gif" alt="Loading..." />
       </div>
     </div>
 
-    <div class="row m-0">
-      <div *ngFor="let project of filteredProjects" class="col-md-4">
-        <div class="portfolio-item">
-          <div class="img-placement">
+    <div class="clr-row">
+      <div *ngFor="let project of filteredProjects" class="clr-col-md-4">
+        <div class="card">
+          <div class="card-img">
             <a [routerLink]="['/portfolio', project.shortname]">
-              <img class="img-fluid profile-photo" [src]="'/images/projects/' + project.shortname + '.jpg'" [alt]="project.name"/>
+              <img [src]="'/images/projects/' + project.shortname + '.jpg'" [alt]="project.name"/>
             </a>
           </div>
-          <div class="portfolio-content">
-            <h2>
+          <div class="card-block">
+            <h3 class="card-title">
               <a [routerLink]="['/portfolio', project.shortname]">{{ project.name }}</a>
-            </h2>
+            </h3>
             <div class="skillsSection">
-              <div class="skills d-flex flex-wrap">
+              <div class="skills">
                 <div *ngFor="let skill of project.skills" class="skill">
                   <p [class]="'skill ' + skill.classname">{{ skill.skillName }}</p>
                 </div>

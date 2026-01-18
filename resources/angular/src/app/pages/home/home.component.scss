@@ -2,9 +2,9 @@
 
 .homepage {
     min-height: 100vh;
-    background: url("/assets/images/homepage-bg.jpg") no-repeat center center;
+    background: url("/images/homepage-bg.jpg") no-repeat center center;
     background-size: cover;
-    box-shadow: inset 0 0 0 1000px $color-overlay;
+    box-shadow: inset 0 0 0 1000px rgba(37,37,37,.9);
     color: $color-text;
     display: flex;
     justify-content: center;
@@ -15,6 +15,7 @@
         text-align: center;
         h1 {
             font-size: 48px;
+            color: $color-text;
             @media screen and (min-width: 768px) {
                 font-size: 80px;
             }

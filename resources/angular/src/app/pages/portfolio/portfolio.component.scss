@@ -2,99 +2,78 @@
 
 .portfolio {
   .portfolio-landing-intro {
-    padding: 6rem 0 3rem;
-    h1 {
-      font-size: 48px;
-      color: $color-text;
-      margin-bottom: 1rem;
-    }
-    p {
-      font-size: 18px;
-      color: $color-text-2;
-      line-height: 1.6;
-    }
+    background: url("/images/portfolio-bg.jpg") no-repeat;
+    box-shadow: inset 0 0 0 1000px rgba(37, 37, 37, 0.9);
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1 { font-size: 48px; color: $color-text; margin-bottom: 1rem; }
+    p { font-size: 18px; color: $color-text-2; line-height: 1.6; }
   }
 
   .portfoliolists {
     padding: 2rem 0;
-
     .categoryFilters {
       margin: 0 1rem 2rem;
-      label {
-        display: block;
-        margin-bottom: 0.5rem;
-        color: $color-text;
-        font-weight: 500;
-      }
-      .form-select {
-        background-color: $color-surface;
-        color: $color-text;
-        border: 1px solid $color-border;
-        padding: 0.5rem;
-        border-radius: 4px;
-        &:focus {
-          outline: none;
-          border-color: $color-link;
-          box-shadow: 0 0 0 3px $color-focus;
-        }
-      }
+      label { display: block; margin-bottom: 0.5rem; color: $color-text; font-weight: 500; }
     }
-
-    .portfolio-item {
+    
+    .card {
       margin-bottom: 2rem;
       background: $color-surface;
-      border-radius: 8px;
-      overflow: hidden;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.2s, box-shadow 0.2s;
       
       &:hover {
         transform: translateY(-4px);
         box-shadow: $shadow-lg;
       }
-
-      .img-placement {
-        overflow: hidden;
-        img {
-          width: 100%;
-          height: 250px;
-          object-fit: cover;
-          transition: transform 0.3s ease;
-        }
-        &:hover img {
-          transform: scale(1.05);
-        }
+      
+      .card-img img {
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.3s;
       }
-
-      .portfolio-content {
-        padding: 1.5rem;
+      
+      &:hover .card-img img {
+        transform: scale(1.05);
+      }
+      
+      .card-block {
+        background-color: $color-surface-2;
+      }
+      
+      .card-title a {
+        color: $color-text;
+        text-decoration: none;
         
-        h2 {
-          font-size: 24px;
-          margin-bottom: 1rem;
-          a {
-            color: $color-text;
-            text-decoration: none;
-            &:hover {
-              color: $color-link-hover;
-            }
-          }
-        }
-
-        .skillsSection {
-          .skills {
-            gap: 0.5rem;
-            .skill p {
-              margin: 0;
-              padding: 0.25rem 0.75rem;
-              background: $color-surface-2;
-              color: $color-text-2;
-              border-radius: 4px;
-              font-size: 14px;
-              display: inline-block;
-            }
-          }
+        &:hover {
+          color: $color-link-hover;
         }
       }
     }
   }
+}
+
+.skillsSection .skills p.skill {
+  display: inline-block; padding: 7px 15px; margin: 0 6px 6px 0; border-radius: 15px; color: #f2f2f2; font-size: 14px;
+  &:before { font-family: "Font Awesome 5 Brands"; margin-right: 2px; }
+  &.html { background: #5f5f5f; &:before { content: "\f13b"; } }
+  &.css { background: #005a9c; &:before { content: "\f38b"; } }
+  &.wordpress { background: #0073aa; &:before { content: "\f19a"; } }
+  &.bootstrap { background: #6f5499; &:before { font-family: sans-serif; content: "B"; border: 1px solid #f2f2f2; padding: 0 4px; border-radius: 3px; } }
+  &.vanillajs { background: #d1bea8; &:before { content: "\f3b8"; } }
+  &.jquery { background: #b24926; &:before { content: "\f3b8"; } }
+  &.php { background: #8892bf; &:before { content: "\f457"; } }
+  &.angular { background: #dd0031; &:before { content: "\f420"; } }
+  &.laravel { background: #ff2b20; &:before { content: "\f3bd"; } }
+  &.react { background: #61dafb; &:before { content: "\f41b"; } }
+  &.sql { background: #f29221; &:before { font-family: "Font Awesome 5 Free"; content: "\f1c0"; font-weight: 700; } }
+  &.ajax { background: #97ba31; &:before { font-family: "Font Awesome 5 Free"; content: "\f0ec"; font-weight: 700; transform: rotate(90deg); } }
+  &.e-commerce { background: #10aea2; &:before { font-family: "Font Awesome 5 Free"; content: "\f155"; font-weight: 700; } }
+  &.design { background: #964b00; &:before { font-family: "Font Awesome 5 Free"; content: "\f5ad"; font-weight: 700; } }
+  &.gsap { background: #61ac27; &:before { content: "\f011"; } }
 }

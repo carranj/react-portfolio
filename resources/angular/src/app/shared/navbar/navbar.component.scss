@@ -1,44 +1,37 @@
 @import '../../../styles/variables';
 
-header {
+clr-header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 100;
-    color: $color-text;
-    padding: 15px 0;
-    text-align: center;
+    z-index: 1000;
     transition: background-color 0.3s ease;
     
     &.scrolled {
         background-color: $color-overlay;
+        box-shadow: $shadow-md;
     }
     
-    @media screen and (min-width: 768px) {
-        padding: 30px;
+    .branding .title {
+        color: $color-text;
+        font-weight: 600;
     }
-    ul {
-        margin: 0;
-        padding: 0;
-        li {
-            margin: 0;
-            list-style-type: none;
-            display: inline-block;
-            a {
-                color: $color-text;
-                text-shadow: $shadow-sm;
-                margin: 0 10px;
-                transition: 0.15s linear all;
-                @media screen and (min-width: 768px) {
-                    margin: 0 25px;
-                }
-                &:hover {
-                    text-decoration: none;
-                    color: $color-link-hover;
-                    text-shadow: none;
-                }
-            }
+    
+    .header-nav .nav-link {
+        .nav-text {
+            color: $color-text;
+            text-shadow: $shadow-sm;
+            transition: 0.15s linear all;
+        }
+        
+        &:hover .nav-text {
+            color: $color-link-hover;
+            text-shadow: none;
+        }
+        
+        &.active .nav-text {
+            color: $color-accent;
         }
     }
 }
