@@ -1,16 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
-interface Skill {
-  skillId: number;
-  skillName: string;
-  classname: string;
-}
-
-interface Project {
-  name: string;
-  shortname: string;
-  skills: Skill[];
-}
+import { ProjectService } from '../../services/project.service';
+import { Project } from '../../models/project.model';
+import { Skill } from '../../models/skill.model';
 
 @Component({
   selector: 'app-portfolio',
@@ -23,43 +14,43 @@ export class PortfolioComponent implements OnInit {
   allSkills: Skill[] = [];
   selectedSkill: string = '';
   isLoading: boolean = false;
+  errorMessage: string = '';
 
-  ngOnInit() {
+  constructor(private projectService: ProjectService) {}
+
+  ngOnInit(): void {
     this.loadProjects();
+    this.loadSkills();
   }
 
-  loadProjects() {
-    // Mock data for now - will connect to API later
-    this.projects = [
-      {
-        name: 'Sample Project 1',
-        shortname: 'sample1',
-        skills: [
-          { skillId: 1, skillName: 'Angular', classname: 'angular' },
-          { skillId: 2, skillName: 'TypeScript', classname: 'typescript' }
-        ]
+  loadProjects(): void {
+    this.isLoading = true;
+    this.projectService.getAllProjects().subscribe({
+      next: (projects: Project[]) => {
+        this.projects = projects;
+        this.filteredProjects = [...projects];
+        this.isLoading = false;
       },
-      {
-        name: 'Sample Project 2',
-        shortname: 'sample2',
-        skills: [
-          { skillId: 3, skillName: 'WordPress', classname: 'wordpress' },
-          { skillId: 4, skillName: 'PHP', classname: 'php' }
-        ]
+      error: (error) => {
+        console.error('Error loading projects:', error);
+        this.errorMessage = 'Failed to load projects. Please try again later.';
+        this.isLoading = false;
       }
-    ];
-
-    this.allSkills = [
-      { skillId: 1, skillName: 'Angular', classname: 'angular' },
-      { skillId: 2, skillName: 'TypeScript', classname: 'typescript' },
-      { skillId: 3, skillName: 'WordPress', classname: 'wordpress' },
-      { skillId: 4, skillName: 'PHP', classname: 'php' }
-    ];
-
-    this.filteredProjects = [...this.projects];
+    });
   }
 
-  filterProjects() {
+  loadSkills(): void {
+    this.projectService.getAllSkills().subscribe({
+      next: (skills: Skill[]) => {
+        this.allSkills = skills;
+      },
+      error: (error) => {
+        console.error('Error loading skills:', error);
+      }
+    });
+  }
+
+  filterProjects(): void {
     if (this.selectedSkill === '') {
       this.filteredProjects = [...this.projects];
     } else {
