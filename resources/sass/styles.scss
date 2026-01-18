@@ -10,7 +10,7 @@ body {
 }
 body,
 html,
-#root {
+#app {
     height: 100%;
 }
 header {
@@ -114,6 +114,7 @@ header {
             max-width: 400px;
             margin: 0 auto;
             text-align: center;
+            margin-top:6rem;
             -webkit-box-flex: 0;
             -webkit-flex: none;
             -ms-flex: none;

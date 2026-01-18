@@ -16,6 +16,7 @@ use App\Http\Controllers\AuthController;
 |
 */
 
+// API routes
 Route::prefix('api')->group(function () {
     Route::get('/get-all-projects', [ProjectsController::class, 'getAllProjects']);
     Route::get('/get-all-skills', [ProjectsController::class, 'getAllSkills']);
@@ -26,6 +27,12 @@ Route::prefix('api')->group(function () {
     Route::get('/verify', [AuthController::class, 'verify']);
 });
 
-Route::get('/{any}', function () {
+// React app (legacy)
+Route::get('/react/{any}', function () {
     return view('app');
+})->where('any', '.*');
+
+// Angular app (default)
+Route::get('/{any}', function () {
+    return view('angular');
 })->where('any', '.*');

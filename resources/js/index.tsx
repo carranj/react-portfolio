@@ -1,6 +1,6 @@
-import React, {useState} from "react";
-import {createRoot} from "react-dom/client";
-import { BrowserRouter as Router, Link, Routes, Route} from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {Home} from "./components/pages/Home";
 import {Biography} from "./components/pages/Biography";
 import {Portfolio} from "./components/pages/Portfolio";
@@ -25,5 +25,5 @@ const App = () => {
     )
 };
 
-const root = createRoot(document.getElementById('root')!);
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<App />);

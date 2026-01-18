@@ -13,7 +13,7 @@ export const Navbar = () => {
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/biography">Biography</Link></li>
                         <li><Link to="/portfolio">Portfolio</Link></li>
-                        {/* <li><Link to="/contact">Contact</Link></li> */}
+                        <li><Link to="/investments">Investments</Link></li>
                         </ul>
                     </nav>
                     </div>
