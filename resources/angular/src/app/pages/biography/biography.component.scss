@@ -1,0 +1,56 @@
+@import '../../../styles/variables';
+
+.biography {
+    .intro {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .name {
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+            margin-top: 6rem;
+            flex: none;
+            h1 {
+                font-size: 60px;
+                color: $color-text;
+                text-shadow: $shadow-md;
+            }
+            a {
+                color: $color-link;
+                &:hover {
+                    color: $color-link-hover;
+                }
+            }
+            .socialIcons {
+                margin-right: 15px;
+                font-size: 24px;
+                &:hover {
+                    color: $color-link-hover;
+                }
+            }
+        }
+        .profilephoto {
+            background: $color-surface;
+        }
+    }
+    .sectionTwo {
+        background: $color-surface;
+        text-align: center;
+        color: $color-text;
+        padding: 30px;
+        h2 {
+            font-size: 36px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: $color-accent;
+        }
+        ul {
+            list-style-type: none;
+            font-weight: 300;
+            padding: 0;
+            font-size: 24px;
+            color: $color-text-2;
+        }
+    }
+}

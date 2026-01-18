@@ -1,0 +1,100 @@
+@import '../../../styles/variables';
+
+.portfolio {
+  .portfolio-landing-intro {
+    padding: 6rem 0 3rem;
+    h1 {
+      font-size: 48px;
+      color: $color-text;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 18px;
+      color: $color-text-2;
+      line-height: 1.6;
+    }
+  }
+
+  .portfoliolists {
+    padding: 2rem 0;
+
+    .categoryFilters {
+      margin: 0 1rem 2rem;
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: $color-text;
+        font-weight: 500;
+      }
+      .form-select {
+        background-color: $color-surface;
+        color: $color-text;
+        border: 1px solid $color-border;
+        padding: 0.5rem;
+        border-radius: 4px;
+        &:focus {
+          outline: none;
+          border-color: $color-link;
+          box-shadow: 0 0 0 3px $color-focus;
+        }
+      }
+    }
+
+    .portfolio-item {
+      margin-bottom: 2rem;
+      background: $color-surface;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: $shadow-lg;
+      }
+
+      .img-placement {
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 250px;
+          object-fit: cover;
+          transition: transform 0.3s ease;
+        }
+        &:hover img {
+          transform: scale(1.05);
+        }
+      }
+
+      .portfolio-content {
+        padding: 1.5rem;
+        
+        h2 {
+          font-size: 24px;
+          margin-bottom: 1rem;
+          a {
+            color: $color-text;
+            text-decoration: none;
+            &:hover {
+              color: $color-link-hover;
+            }
+          }
+        }
+
+        .skillsSection {
+          .skills {
+            gap: 0.5rem;
+            .skill p {
+              margin: 0;
+              padding: 0.25rem 0.75rem;
+              background: $color-surface-2;
+              color: $color-text-2;
+              border-radius: 4px;
+              font-size: 14px;
+              display: inline-block;
+            }
+          }
+        }
+      }
+    }
+  }
+}

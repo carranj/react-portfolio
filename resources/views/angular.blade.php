@@ -14,9 +14,7 @@
     <link rel="stylesheet" href="{{ asset('angular/dist/styles.css') }}">
   </head>
   <body>
-    <div id="app">
-      <app-root></app-root>
-    </div>
+    <app-root></app-root>
     <script src="{{ asset('angular/dist/runtime.js') }}" type="module"></script>
     <script src="{{ asset('angular/dist/polyfills.js') }}" type="module"></script>
     <script src="{{ asset('angular/dist/main.js') }}" type="module"></script>

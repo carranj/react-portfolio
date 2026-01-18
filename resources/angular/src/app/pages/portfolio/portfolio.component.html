@@ -1,0 +1,54 @@
+<div class="container-fluid portfolio p-0">
+  <div class="portfolio-landing-intro">
+    <div class="row m-0">
+      <div class="col-md-6 offset-md-1">
+        <h1>Portfolio</h1>
+        <p>Some of my featured work is listed below. These projects include custom WordPress sites, Angular applications, advanced JavaScript projects, and custom branding projects.</p>
+      </div>
+      <div class="col-md-5"></div>
+    </div>
+  </div>
+  <div class="portfoliolists">
+    <div class="row mb-3 categoryFilters">
+      <div class="col-md-4">
+        <label for="skill-filter">Filter by Skill:</label>
+        <select id="skill-filter" class="form-select" [(ngModel)]="selectedSkill" (change)="filterProjects()">
+          <option value="">All Skills</option>
+          <option *ngFor="let skill of allSkills" [value]="skill.skillName">
+            {{ skill.skillName }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div *ngIf="isLoading" class="row">
+      <div class="col-md-4 offset-md-4">
+        <img src="/assets/images/loading.gif" alt="Loading..." />
+      </div>
+    </div>
+
+    <div class="row m-0">
+      <div *ngFor="let project of filteredProjects" class="col-md-4">
+        <div class="portfolio-item">
+          <div class="img-placement">
+            <a [routerLink]="['/portfolio', project.shortname]">
+              <img class="img-fluid profile-photo" [src]="'/assets/images/projects/' + project.shortname + '.jpg'" [alt]="project.name"/>
+            </a>
+          </div>
+          <div class="portfolio-content">
+            <h2>
+              <a [routerLink]="['/portfolio', project.shortname]">{{ project.name }}</a>
+            </h2>
+            <div class="skillsSection">
+              <div class="skills d-flex flex-wrap">
+                <div *ngFor="let skill of project.skills" class="skill">
+                  <p [class]="'skill ' + skill.classname">{{ skill.skillName }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

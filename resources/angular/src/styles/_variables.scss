@@ -1,0 +1,50 @@
+// ==============================
+// Jose Carranco Theme (Dark Code)
+// Main background anchored to #322f2a
+// ==============================
+
+// --- Core backgrounds
+$color-bg: #322f2a;            // main background (warm charcoal)
+$color-bg-alt: #1f2326;        // cool code-overlay background (matches screenshot vibe)
+$color-surface: #3a3631;       // cards / sections
+$color-surface-2: #45463f;     // elevated surface / hover surface
+$color-overlay: rgba(31, 35, 38, 0.75); // hero overlay / glass layer
+
+// --- Borders / dividers
+$color-border: #343e3e;        // subtle cool divider
+$color-border-soft: rgba(222, 218, 213, 0.12);
+
+// --- Typography
+$color-text: #dedad5;          // primary text (soft off-white from screenshot)
+$color-text-2: rgba(222, 218, 213, 0.78); // secondary text
+$color-text-muted: rgba(222, 218, 213, 0.58); // muted / labels
+$color-text-inverse: #1f2326;  // text on light surfaces (rare in this theme)
+
+// --- Links
+$color-link: #9fb2bf;          // slate-blue (clean, dev/portfolio feel)
+$color-link-hover: #c7d3dc;    // brighter on hover
+$color-link-visited: #8ea1ad;  // slightly muted
+$color-link-underline: rgba(159, 178, 191, 0.55);
+
+// --- Accents (keep subtle + premium)
+// Use sparingly: buttons, icons, tiny highlights (not links)
+$color-accent: #d6b25e;        // warm gold (premium highlight)
+$color-accent-2: #5f8d89;      // muted teal (optional, charts/badges)
+
+// --- States
+$color-success: #7fa982;
+$color-warning: #d6b25e;
+$color-danger: #c45a5a;
+$color-info: #5f8d89;
+
+// --- Focus ring
+$color-focus: rgba(214, 178, 94, 0.55);
+
+// --- Shadows (soft, “cinematic”)
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.25);
+$shadow-md: 0 10px 25px rgba(0, 0, 0, 0.35);
+$shadow-lg: 0 20px 45px rgba(0, 0, 0, 0.45);
+
+// --- Opacity helpers
+$opacity-disabled: 0.55;
+$opacity-muted: 0.72;
